@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/entry/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/entry/index.entry.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".mini-carousel-container {\\n  width: 90%;\\n  height: 300px;\\n  position: absolute;\\n  top: 50%;\\n  left: 50%;\\n  transform: translate(-50%, -50%);\\n  display: flex;\\n  flex-direction: row; }\\n\\n.mini-carousel-scroller {\\n  width: 50%;\\n  height: 100%;\\n  display: flex;\\n  flex-direction: row;\\n  justify-content: center;\\n  align-items: center; }\\n\\n.mini-carousel-col {\\n  width: 15%;\\n  height: 100%;\\n  display: flex;\\n  flex-direction: column;\\n  justify-content: center;\\n  background-color: yellow; }\\n  .mini-carousel-col .mini-carousel-arrow {\\n    width: 50%;\\n    height: 10%;\\n    background-color: blue; }\\n\\n.mini-carousel-left {\\n  align-items: flex-start; }\\n\\n.mini-carousel-right {\\n  align-items: flex-end; }\\n\\n.mini-carousel-viewport {\\n  width: 280px;\\n  height: 210px;\\n  overflow: hidden; }\\n\\n.mini-carousel-row {\\n  width: 1120px;\\n  height: 100%;\\n  z-index: -1;\\n  transform: translateX(-280px); }\\n  .mini-carousel-row .mini-carousel-card {\\n    width: 25%;\\n    height: 100%;\\n    display: inline-block; }\\n\\na.img-link img {\\n  width: 280px;\\n  height: 210px; }\\n\\n.benefit {\\n  width: 50%;\\n  height: 100%; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./public/stylesheets/main_card.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".mini-carousel-container {\\n  width: 90%;\\n  height: 300px;\\n  position: absolute;\\n  top: 50%;\\n  left: 50%;\\n  transform: translate(-50%, -50%);\\n  display: flex;\\n  flex-direction: row; }\\n\\n.mini-carousel-scroller {\\n  width: 50%;\\n  height: 100%;\\n  display: flex;\\n  flex-direction: row;\\n  justify-content: center;\\n  align-items: center; }\\n\\n.mini-carousel-col {\\n  width: 15%;\\n  height: 100%;\\n  display: flex;\\n  flex-direction: column;\\n  justify-content: center;\\n  background-color: yellow; }\\n  .mini-carousel-col .mini-carousel-arrow {\\n    width: 50%;\\n    height: 10%;\\n    background-color: blue; }\\n\\n.mini-carousel-left {\\n  align-items: flex-start; }\\n\\n.mini-carousel-right {\\n  align-items: flex-end; }\\n\\n.mini-carousel-viewport {\\n  width: 280px;\\n  height: 210px;\\n  overflow: hidden; }\\n\\n.mini-carousel-row {\\n  width: 1120px;\\n  height: 100%; }\\n  .mini-carousel-row .mini-carousel-card {\\n    width: 25%;\\n    height: 100%;\\n    display: inline-block; }\\n\\na.img-link img {\\n  width: 280px;\\n  height: 210px; }\\n\\n.benefit {\\n  width: 50%;\\n  height: 100%; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./public/stylesheets/main_card.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -132,6 +132,17 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 
 /***/ }),
 
+/***/ "./public/javascripts/index.js":
+/*!*************************************!*\
+  !*** ./public/javascripts/index.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("var leftArrow = document.getElementById(\"left-arrow\");\nvar miniCarouselRow = document.querySelector(\".mini-carousel-row\");\nvar rMinus = /-/;\nvar click;\nminiCarouselRow.addEventListener(\"transitionend\", function () {\n  var lastCard = miniCarouselRow.lastChild;\n  miniCarouselRow.removeChild(lastCard);\n  miniCarouselRow.insertAdjacentElement('afterbegin', lastCard);\n  miniCarouselRow.style.transition = '';\n  miniCarouselRow.style.transform = \"translateX(\".concat(-280, \"px)\");\n});\nleftArrow.addEventListener(\"click\", function () {\n  if (click) {\n    clearTimeout(click);\n  }\n\n  var translate = miniCarouselRow.style.transform;\n  var px = Number(translate.replace(/[^0-9]/g, ''));\n  var sign = rMinus.test(translate) ? -1 : 1;\n  click = setTimeout(function () {\n    miniCarouselRow.style.transition = 'all 0.3s ease-out';\n    miniCarouselRow.style.transform = \"translateX(\".concat(px * sign + 280, \"px)\");\n  }, 100);\n});\n\n//# sourceURL=webpack:///./public/javascripts/index.js?");
+
+/***/ }),
+
 /***/ "./public/stylesheets/main_card.sass":
 /*!*******************************************!*\
   !*** ./public/stylesheets/main_card.sass ***!
@@ -154,15 +165,15 @@ eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/
 
 /***/ }),
 
-/***/ "./src/entry/index.js":
-/*!****************************!*\
-  !*** ./src/entry/index.js ***!
-  \****************************/
+/***/ "./src/entry/index.entry.js":
+/*!**********************************!*\
+  !*** ./src/entry/index.entry.js ***!
+  \**********************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _public_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../public/stylesheets/reset.sass */ \"./public/stylesheets/reset.sass\");\n/* harmony import */ var _public_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_public_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _public_stylesheets_main_card_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../public/stylesheets/main_card.sass */ \"./public/stylesheets/main_card.sass\");\n/* harmony import */ var _public_stylesheets_main_card_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_public_stylesheets_main_card_sass__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\n//# sourceURL=webpack:///./src/entry/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _public_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../public/stylesheets/reset.sass */ \"./public/stylesheets/reset.sass\");\n/* harmony import */ var _public_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_public_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _public_stylesheets_main_card_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../public/stylesheets/main_card.sass */ \"./public/stylesheets/main_card.sass\");\n/* harmony import */ var _public_stylesheets_main_card_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_public_stylesheets_main_card_sass__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _public_javascripts_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../public/javascripts/index.js */ \"./public/javascripts/index.js\");\n/* harmony import */ var _public_javascripts_index_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_public_javascripts_index_js__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n//# sourceURL=webpack:///./src/entry/index.entry.js?");
 
 /***/ })
 

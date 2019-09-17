@@ -11,9 +11,9 @@ html
     div.mini-carousel-container
       div.mini-carousel-scroller
         div.mini-carousel-col.mini-carousel-left 
-          button.mini-carousel-arrow
+          button.mini-carousel-arrow#left-arrow
         div.mini-carousel-viewport
-          ol.mini-carousel-row
+          ol.mini-carousel-row(style=`transform: translateX(-${carousel_row_width}px)`)
             li.mini-carousel-card
               a.img-link
                 img(src="/images/Sub_Card_A/Sub_Card_A01.jpg" alt="Homecoming New Series")
@@ -27,7 +27,7 @@ html
               a.img-link
                 img(src="/images/Sub_Card_A/Sub_Card_A04.jpg" alt="Tom Clansy's Jack Lyan")
         div.mini-carousel-col.mini-carousel-right
-          button.mini-carousel-arrow
+          button.mini-carousel-arrow#right-arrow
       div.benefit
         h2.benefit-header
         div.benefit-blurb
