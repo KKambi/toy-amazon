@@ -1,12 +1,14 @@
 //참고: https://ui.toast.com/fe-guide/ko_BUNDLER/
+//참고: https://webpack.js.org/loaders/sass-loader/
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './public/entry.js',
+  entry: './public/entry/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js'
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -30,5 +32,6 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new CleanWebpackPlugin()
   ]
 }

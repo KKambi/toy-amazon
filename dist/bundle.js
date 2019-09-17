@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./public/entry.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./public/entry/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./public/entry.js":
-/*!*************************!*\
-  !*** ./public/entry.js ***!
-  \*************************/
+/***/ "./public/entry/index.js":
+/*!*******************************!*\
+  !*** ./public/entry/index.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./public/entry.js?");
+eval("\n\n//# sourceURL=webpack:///./public/entry/index.js?");
 
 /***/ })
 
