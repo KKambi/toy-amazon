@@ -2,6 +2,7 @@ doctype html
 html
   head
     meta(charset='UTF-8')
+    meta(name="viewport" content="width=device-width")
     meta(name="description" content="Amazon Carousel")
     meta(name="author" content="KKambi")
     title= title
@@ -9,14 +10,26 @@ html
     p Welcome to #{title}
     div.mini-carousel-container
       div.mini-carousel-scroller
-        div.mini-carousel-left
+        div.mini-carousel-col.mini-carousel-left 
           button.mini-carousel-arrow
         div.mini-carousel-viewport
-          div.mini-carousel-row
-            div.mini-carousel-card
-            div.mini-carousel-card
-            div.mini-carousel-card
-            div.mini-carousel-card
-        div.mini-carousel-right
+          ol.mini-carousel-row
+            li.mini-carousel-card
+              a.img-link
+                img(src="/images/Sub_Card_A/Sub_Card_A01.jpg" alt="Homecoming New Series")
+            li.mini-carousel-card
+              a.img-link
+                img(src="/images/Sub_Card_A/Sub_Card_A02.jpg" alt="The Man in the High Castle")
+            li.mini-carousel-card
+              a.img-link
+                img(src="/images/Sub_Card_A/Sub_Card_A03.jpg" alt="The Marvelous Mrs.Meisel")
+            li.mini-carousel-card
+              a.img-link
+                img(src="/images/Sub_Card_A/Sub_Card_A04.jpg" alt="Tom Clansy's Jack Lyan")
+        div.mini-carousel-col.mini-carousel-right
           button.mini-carousel-arrow
+      div.benefit
+        h2.benefit-header
+        div.benefit-blurb
+        div.benefit-cta
     script(src="/dist/index.bundle.js")
