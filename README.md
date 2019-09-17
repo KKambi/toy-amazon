@@ -9,3 +9,7 @@
 - express (4.16.1)
 - pug
 - sass
+- webpack bundler
+  - sass-loader를 이용한 sass 컴파일링
+  - babel-loader를 이용한 트랜스파일링
+  - eslint-loader를 이용한 ES6 기준 정적 분석
