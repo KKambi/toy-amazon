@@ -91,9 +91,9 @@
   !*** ./public/entry/index.js ***!
   \*******************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("\n\n//# sourceURL=webpack:///./public/entry/index.js?");
+eval("var foo;\n\nif (true) {\n  foo = 1;\n} else {}\n\nconsole.log(foo);\n\n//# sourceURL=webpack:///./public/entry/index.js?");
 
 /***/ })
 
