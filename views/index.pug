@@ -1,5 +1,22 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name="description" content="Amazon Carousel")
+    meta(name="author" content="KKambi")
+    title= title
+  body
+    p Welcome to #{title}
+    div.mini-carousel-container
+      div.mini-carousel-scroller
+        div.mini-carousel-left
+          button.mini-carousel-arrow
+        div.mini-carousel-viewport
+          div.mini-carousel-row
+            div.mini-carousel-card
+            div.mini-carousel-card
+            div.mini-carousel-card
+            div.mini-carousel-card
+        div.mini-carousel-right
+          button.mini-carousel-arrow
+    script(src="/dist/index.bundle.js")

@@ -1,6 +1,12 @@
-extends layout
-
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name="description" content="Amazon Carousel")
+    meta(name="author" content="KKambi")
+    title= title
+    link(rel='stylesheet', href='/stylesheets/reset.sass')
+  body
+    h1= message
+    h2= error.status
+    pre #{error.stack}
