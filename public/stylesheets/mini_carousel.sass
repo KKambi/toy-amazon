@@ -1,0 +1,101 @@
+$carousel-card-number: 4
+$carousel-card-width: 280px
+$carousel-card-height: 210px
+$carousel-row-width: $carousel-card-number * $carousel-card-width
+
+$mini-arrow-width: 13px
+$mini-arrow-height: 20px
+$mini-arrow-background-size: 158px auto
+
+$title-font-size: 4.8em
+$title-line-height: 1.2
+$content-font-size: 1.8em
+$content-line-height: 1.5
+
+#video-benefit-container
+    width: 90%
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    display: flex
+    flex-direction: row
+
+.mini-carousel-scroller
+    width: 50%
+
+.mini-carousel-container
+    height: 100%
+    display: flex
+    flex-direction: row
+    justify-content: center
+    margin-left: 100px
+
+.mini-carousel-col
+    display: flex
+    flex-direction: column
+    justify-content: center
+    .mini-carousel-arrow
+        width: $mini-arrow-width
+        height: $mini-arrow-height
+        background-size: $mini-arrow-background-size
+        background-image: url("/images/Sub_Element/Sub_SpriteSheet_Arrow.png")
+        background-color: transparent
+        cursor: pointer
+    #left-arrow
+        background-position: -79px -208px
+    #right-arrow
+        background-position: -92px -208px
+
+.mini-carousel-left
+    align-items: flex-start
+
+.mini-carousel-center
+    padding-left: 20px
+    padding-right: 20px
+
+.mini-carousel-right
+    align-items: flex-end
+
+.mini-carousel-viewport
+    width: $carousel-card-width
+    height: $carousel-card-height
+    overflow: hidden
+
+.mini-carousel-viewport::before
+    width: 100px
+    height: 100px
+    content: ""
+    box-shadow: 0 -15px 25px 7px #aaaaaa11
+
+.mini-carousel-row
+    width: $carousel-row-width
+    height: 100%
+    .mini-carousel-card
+        width: 25%
+        height: 100%
+        display: inline-block
+
+a.img-link
+    img
+        width: $carousel-card-width
+        height: $carousel-card-height
+
+.benefit
+    width: 50%
+    height: 100%
+    h2, div
+        margin-bottom: 20px
+        line-height: $content-line-height
+    div.benefit-header
+        font-size: $title-font-size
+        line-height: $title-line-height
+    div.benefit-blurb
+        font-size: $content-font-size
+    div.benefit-cta
+        font-size: $content-font-size
+        text-decoration: underline
+
+
+
+

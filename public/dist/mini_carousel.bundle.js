@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/entry/index.entry.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/entry/mini_carousel.entry.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./public/stylesheets/main_card.sass":
-/*!************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./public/stylesheets/main_card.sass ***!
-  \************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./public/stylesheets/mini_carousel.sass":
+/*!****************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./public/stylesheets/mini_carousel.sass ***!
+  \****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".mini-carousel-container {\\n  width: 90%;\\n  height: 300px;\\n  position: absolute;\\n  top: 50%;\\n  left: 50%;\\n  transform: translate(-50%, -50%);\\n  display: flex;\\n  flex-direction: row; }\\n\\n.mini-carousel-scroller {\\n  width: 50%;\\n  height: 100%;\\n  display: flex;\\n  flex-direction: row;\\n  justify-content: center;\\n  align-items: center; }\\n\\n.mini-carousel-col {\\n  width: 15%;\\n  height: 100%;\\n  display: flex;\\n  flex-direction: column;\\n  justify-content: center;\\n  background-color: yellow; }\\n  .mini-carousel-col .mini-carousel-arrow {\\n    width: 50%;\\n    height: 10%;\\n    background-color: blue; }\\n\\n.mini-carousel-left {\\n  align-items: flex-start; }\\n\\n.mini-carousel-right {\\n  align-items: flex-end; }\\n\\n.mini-carousel-viewport {\\n  width: 280px;\\n  height: 210px;\\n  overflow: hidden; }\\n\\n.mini-carousel-row {\\n  width: 1120px;\\n  height: 100%; }\\n  .mini-carousel-row .mini-carousel-card {\\n    width: 25%;\\n    height: 100%;\\n    display: inline-block; }\\n\\na.img-link img {\\n  width: 280px;\\n  height: 210px; }\\n\\n.benefit {\\n  width: 50%;\\n  height: 100%; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./public/stylesheets/main_card.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"#video-benefit-container {\\n  width: 90%;\\n  position: absolute;\\n  top: 50%;\\n  left: 50%;\\n  transform: translate(-50%, -50%);\\n  display: flex;\\n  flex-direction: row; }\\n\\n.mini-carousel-scroller {\\n  width: 50%; }\\n\\n.mini-carousel-container {\\n  height: 100%;\\n  display: flex;\\n  flex-direction: row;\\n  justify-content: center;\\n  margin-left: 100px; }\\n\\n.mini-carousel-col {\\n  display: flex;\\n  flex-direction: column;\\n  justify-content: center; }\\n  .mini-carousel-col .mini-carousel-arrow {\\n    width: 13px;\\n    height: 20px;\\n    background-size: 158px auto;\\n    background-image: url(\\\"/images/Sub_Element/Sub_SpriteSheet_Arrow.png\\\");\\n    background-color: transparent;\\n    cursor: pointer; }\\n  .mini-carousel-col #left-arrow {\\n    background-position: -79px -208px; }\\n  .mini-carousel-col #right-arrow {\\n    background-position: -92px -208px; }\\n\\n.mini-carousel-left {\\n  align-items: flex-start; }\\n\\n.mini-carousel-center {\\n  padding-left: 20px;\\n  padding-right: 20px; }\\n\\n.mini-carousel-right {\\n  align-items: flex-end; }\\n\\n.mini-carousel-viewport {\\n  width: 280px;\\n  height: 210px;\\n  overflow: hidden; }\\n\\n.mini-carousel-viewport::before {\\n  width: 100px;\\n  height: 100px;\\n  content: \\\"\\\";\\n  box-shadow: 0 -15px 25px 7px #aaaaaa11; }\\n\\n.mini-carousel-row {\\n  width: 1120px;\\n  height: 100%; }\\n  .mini-carousel-row .mini-carousel-card {\\n    width: 25%;\\n    height: 100%;\\n    display: inline-block; }\\n\\na.img-link img {\\n  width: 280px;\\n  height: 210px; }\\n\\n.benefit {\\n  width: 50%;\\n  height: 100%; }\\n  .benefit h2, .benefit div {\\n    margin-bottom: 20px;\\n    line-height: 1.5; }\\n  .benefit div.benefit-header {\\n    font-size: 4.8em;\\n    line-height: 1.2; }\\n  .benefit div.benefit-blurb {\\n    font-size: 1.8em; }\\n  .benefit div.benefit-cta {\\n    font-size: 1.8em;\\n    text-decoration: underline; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./public/stylesheets/mini_carousel.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -104,7 +104,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nexports.push([module.i, \"@import url(https://fonts.googleapis.com/css?family=Noto+Sans&display=swap);\", \"\"]);\n// Module\nexports.push([module.i, \"html, body, div, span, applet, object, iframe,\\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\\na, abbr, acronym, address, big, cite, code,\\ndel, dfn, em, img, ins, kbd, q, s, samp,\\nsmall, strike, strong, sub, sup, tt, var,\\nb, u, i, center,\\ndl, dt, dd, ol, ul, li,\\nfieldset, form, label, legend,\\ntable, caption, tbody, tfoot, thead, tr, th, td,\\narticle, aside, canvas, details, embed,\\nfigure, figcaption, footer, header, hgroup,\\nmenu, nav, output, ruby, section, summary,\\ntime, mark, audio, video {\\n  margin: 0;\\n  padding: 0;\\n  border: 0;\\n  vertical-align: baseline; }\\n\\nhtml {\\n  width: 100%;\\n  height: 100%; }\\n\\nbody {\\n  width: 100%;\\n  height: 100%;\\n  font-family: \\\"Noto Sans\\\", sans-serif;\\n  font-weight: normal;\\n  font-size: 10px;\\n  line-height: 1; }\\n\\n/* HTML5 display-role reset for older browsers */\\narticle, aside, details, figcaption, figure,\\nfooter, header, hgroup, menu, nav, section {\\n  display: block; }\\n\\nol, ul {\\n  list-style: none; }\\n\\nblockquote, q {\\n  quotes: none; }\\n\\nblockquote:before, blockquote:after,\\nq:before, q:after {\\n  content: '';\\n  content: none; }\\n\\ntable {\\n  border-collapse: collapse;\\n  border-spacing: 0; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./public/stylesheets/reset.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nexports.push([module.i, \"@import url(https://fonts.googleapis.com/css?family=Noto+Sans&display=swap);\", \"\"]);\n// Module\nexports.push([module.i, \"html, body, div, span, applet, object, iframe,\\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\\na, abbr, acronym, address, big, cite, code,\\ndel, dfn, em, img, ins, kbd, q, s, samp,\\nsmall, strike, strong, sub, sup, tt, var,\\nb, u, i, center,\\ndl, dt, dd, ol, ul, li,\\nfieldset, form, label, legend,\\ntable, caption, tbody, tfoot, thead, tr, th, td,\\narticle, aside, canvas, details, embed,\\nfigure, figcaption, footer, header, hgroup,\\nmenu, nav, output, ruby, section, summary,\\ntime, mark, audio, video {\\n  margin: 0;\\n  padding: 0;\\n  border: 0;\\n  vertical-align: baseline; }\\n\\nhtml {\\n  width: 100%;\\n  height: 100%; }\\n\\nbody {\\n  width: 100%;\\n  height: 100%;\\n  font-family: \\\"Noto Sans\\\", sans-serif;\\n  font-weight: normal;\\n  font-size: 10px;\\n  line-height: 1; }\\n\\n/* HTML5 display-role reset for older browsers */\\narticle, aside, details, figcaption, figure,\\nfooter, header, hgroup, menu, nav, section {\\n  display: block; }\\n\\nol, ul {\\n  list-style: none; }\\n\\nblockquote, q {\\n  quotes: none; }\\n\\nblockquote:before, blockquote:after,\\nq:before, q:after {\\n  content: '';\\n  content: none; }\\n\\ntable {\\n  border-collapse: collapse;\\n  border-spacing: 0; }\\n\\n/* Header tag default size by KKambi */\\nh1 {\\n  font-size: 4.5em; }\\n\\nh2 {\\n  font-size: 3.5em; }\\n\\nh3 {\\n  font-size: 2.5em; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./public/stylesheets/reset.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -132,25 +132,25 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 
 /***/ }),
 
-/***/ "./public/javascripts/index.js":
-/*!*************************************!*\
-  !*** ./public/javascripts/index.js ***!
-  \*************************************/
+/***/ "./public/javascripts/mini_carousel.js":
+/*!*********************************************!*\
+  !*** ./public/javascripts/mini_carousel.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("var leftArrow = document.getElementById(\"left-arrow\");\nvar miniCarouselRow = document.querySelector(\".mini-carousel-row\");\nvar rMinus = /-/; // let click;\n\nvar button = document.querySelector(\".mini-carousel-arrow\");\nminiCarouselRow.addEventListener(\"transitionend\", function () {\n  var lastCard = miniCarouselRow.lastChild;\n  miniCarouselRow.removeChild(lastCard);\n  miniCarouselRow.insertAdjacentElement('afterbegin', lastCard);\n  miniCarouselRow.style.transition = '';\n  miniCarouselRow.style.transform = \"translateX(\".concat(-280, \"px)\");\n  button.removeAttribute(\"disabled\");\n});\nleftArrow.addEventListener(\"click\", function () {\n  var translate = miniCarouselRow.style.transform;\n  var px = Number(translate.replace(/[^0-9]/g, ''));\n  var sign = rMinus.test(translate) ? -1 : 1;\n  miniCarouselRow.style.transition = 'all 0.3s ease-out';\n  miniCarouselRow.style.transform = \"translateX(\".concat(px * sign + 280, \"px)\");\n  button.setAttribute(\"disabled\", \"\");\n});\n\n//# sourceURL=webpack:///./public/javascripts/index.js?");
+eval("var leftArrow = document.getElementById(\"left-arrow\");\nvar rightArrow = document.getElementById(\"right-arrow\");\nvar miniCarouselRow = document.querySelector(\".mini-carousel-row\");\nvar button = document.querySelector(\".mini-carousel-arrow\");\nvar direction = \"\";\nvar childMap = {\n  \"left\": \"lastChild\",\n  \"right\": \"firstChild\"\n};\nvar insertMap = {\n  \"left\": \"afterbegin\",\n  \"right\": \"beforeend\"\n};\nminiCarouselRow.addEventListener(\"transitionend\", function () {\n  var card = miniCarouselRow[childMap[direction]];\n  miniCarouselRow.removeChild(card);\n  miniCarouselRow.insertAdjacentElement(insertMap[direction], card);\n  miniCarouselRow.style.transition = '';\n  miniCarouselRow.style.transform = \"translateX(\".concat(-280, \"px)\");\n  button.removeAttribute(\"disabled\");\n});\nleftArrow.addEventListener(\"click\", function () {\n  var translate = miniCarouselRow.style.transform;\n  var px = Number(translate.replace(/[^0-9]/g, ''));\n  var sign = translate.includes('-') ? -1 : 1;\n  direction = \"left\";\n  miniCarouselRow.style.transition = 'all 0.1s ease-out';\n  miniCarouselRow.style.transform = \"translateX(\".concat(px * sign + 280, \"px)\");\n  button.setAttribute(\"disabled\", \"\");\n});\nrightArrow.addEventListener(\"click\", function () {\n  var translate = miniCarouselRow.style.transform;\n  var px = Number(translate.replace(/[^0-9]/g, ''));\n  var sign = translate.includes('-') ? -1 : 1;\n  direction = \"right\";\n  miniCarouselRow.style.transition = 'all 0.1s ease-out';\n  miniCarouselRow.style.transform = \"translateX(\".concat(px * sign - 280, \"px)\");\n  button.setAttribute(\"disabled\", \"\");\n});\n\n//# sourceURL=webpack:///./public/javascripts/mini_carousel.js?");
 
 /***/ }),
 
-/***/ "./public/stylesheets/main_card.sass":
-/*!*******************************************!*\
-  !*** ./public/stylesheets/main_card.sass ***!
-  \*******************************************/
+/***/ "./public/stylesheets/mini_carousel.sass":
+/*!***********************************************!*\
+  !*** ./public/stylesheets/mini_carousel.sass ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./main_card.sass */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./public/stylesheets/main_card.sass\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./public/stylesheets/main_card.sass?");
+eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./mini_carousel.sass */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./public/stylesheets/mini_carousel.sass\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./public/stylesheets/mini_carousel.sass?");
 
 /***/ }),
 
@@ -165,15 +165,15 @@ eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/
 
 /***/ }),
 
-/***/ "./src/entry/index.entry.js":
-/*!**********************************!*\
-  !*** ./src/entry/index.entry.js ***!
-  \**********************************/
+/***/ "./src/entry/mini_carousel.entry.js":
+/*!******************************************!*\
+  !*** ./src/entry/mini_carousel.entry.js ***!
+  \******************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _public_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../public/stylesheets/reset.sass */ \"./public/stylesheets/reset.sass\");\n/* harmony import */ var _public_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_public_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _public_stylesheets_main_card_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../public/stylesheets/main_card.sass */ \"./public/stylesheets/main_card.sass\");\n/* harmony import */ var _public_stylesheets_main_card_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_public_stylesheets_main_card_sass__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _public_javascripts_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../public/javascripts/index.js */ \"./public/javascripts/index.js\");\n/* harmony import */ var _public_javascripts_index_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_public_javascripts_index_js__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n//# sourceURL=webpack:///./src/entry/index.entry.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _public_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../public/stylesheets/reset.sass */ \"./public/stylesheets/reset.sass\");\n/* harmony import */ var _public_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_public_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _public_stylesheets_mini_carousel_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../public/stylesheets/mini_carousel.sass */ \"./public/stylesheets/mini_carousel.sass\");\n/* harmony import */ var _public_stylesheets_mini_carousel_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_public_stylesheets_mini_carousel_sass__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _public_javascripts_mini_carousel_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../public/javascripts/mini_carousel.js */ \"./public/javascripts/mini_carousel.js\");\n/* harmony import */ var _public_javascripts_mini_carousel_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_public_javascripts_mini_carousel_js__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n//# sourceURL=webpack:///./src/entry/mini_carousel.entry.js?");
 
 /***/ })
 
