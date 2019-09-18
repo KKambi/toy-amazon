@@ -24,7 +24,6 @@ miniCarouselRow.addEventListener("transitionend", () => {
 
 leftArrow.addEventListener("click", () => {
     if (intervalId){
-        console.log(`interval:${intervalId}`)
         clearInterval(intervalId)
         intervalId = ""
     }
@@ -36,12 +35,10 @@ leftArrow.addEventListener("click", () => {
     miniCarouselRow.style.transition = 'all 0.1s ease-out'
     miniCarouselRow.style.transform = `translateX(${px * sign + 280}px)`
     button.setAttribute("disabled", "")
-
 })
 
 rightArrow.addEventListener("click", () => {
     if (intervalId){
-        console.log(`interval:${intervalId}`)
         clearInterval(intervalId)
         intervalId = ""
     }
@@ -56,5 +53,12 @@ rightArrow.addEventListener("click", () => {
 })
 
 intervalId = setInterval(() => {
-    rightArrow.click() 
+    const translate = miniCarouselRow.style.transform
+    const px = Number(translate.replace(/[^0-9]/g,''))
+    const sign = translate.includes('-') ? -1 : 1
+
+    direction = "right"
+    miniCarouselRow.style.transition = 'all 0.1s ease-out'
+    miniCarouselRow.style.transform = `translateX(${px * sign - 280}px)`
+    button.setAttribute("disabled", "")
 }, 3000)
