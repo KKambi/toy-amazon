@@ -1,19 +1,20 @@
 const leftArrow = document.getElementById("left-arrow")
 const rightArrow = document.getElementById("right-arrow")
 const miniCarouselRow = document.querySelector(".mini-carousel-row")
-let button = document.querySelector(".mini-carousel-arrow")
-let direction = ""
-let childMap = {
+const button = document.querySelector(".mini-carousel-arrow")
+const childMap = {
     "left": "lastChild",
     "right": "firstChild"
 }
-let insertMap = {
+const insertMap = {
     "left": "afterbegin",
     "right": "beforeend"
 }
+let intervalId = ""
+let direction = ""
 
 miniCarouselRow.addEventListener("transitionend", () => {
-    let card = miniCarouselRow[childMap[direction]]
+    const card = miniCarouselRow[childMap[direction]]
     miniCarouselRow.removeChild(card)
     miniCarouselRow.insertAdjacentElement(insertMap[direction], card)
     miniCarouselRow.style.transition = ''
@@ -22,9 +23,14 @@ miniCarouselRow.addEventListener("transitionend", () => {
 })
 
 leftArrow.addEventListener("click", () => {
-    let translate = miniCarouselRow.style.transform
-    let px = Number(translate.replace(/[^0-9]/g,''))
-    let sign = translate.includes('-') ? -1 : 1
+    if (intervalId){
+        console.log(`interval:${intervalId}`)
+        clearInterval(intervalId)
+        intervalId = ""
+    }
+    const translate = miniCarouselRow.style.transform
+    const px = Number(translate.replace(/[^0-9]/g,''))
+    const sign = translate.includes('-') ? -1 : 1
     direction = "left"
 
     miniCarouselRow.style.transition = 'all 0.1s ease-out'
@@ -34,9 +40,14 @@ leftArrow.addEventListener("click", () => {
 })
 
 rightArrow.addEventListener("click", () => {
-    let translate = miniCarouselRow.style.transform
-    let px = Number(translate.replace(/[^0-9]/g,''))
-    let sign = translate.includes('-') ? -1 : 1
+    if (intervalId){
+        console.log(`interval:${intervalId}`)
+        clearInterval(intervalId)
+        intervalId = ""
+    }
+    const translate = miniCarouselRow.style.transform
+    const px = Number(translate.replace(/[^0-9]/g,''))
+    const sign = translate.includes('-') ? -1 : 1
     direction = "right"
 
     miniCarouselRow.style.transition = 'all 0.1s ease-out'
@@ -44,3 +55,6 @@ rightArrow.addEventListener("click", () => {
     button.setAttribute("disabled", "")
 })
 
+intervalId = setInterval(() => {
+    rightArrow.click() 
+}, 3000)
