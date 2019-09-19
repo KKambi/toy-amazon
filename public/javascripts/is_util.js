@@ -8,6 +8,4 @@ const is_util = {
     }
 }
 
-module.exports = {
-    is_util
-}
+export default is_util

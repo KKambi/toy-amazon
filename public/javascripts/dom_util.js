@@ -10,6 +10,4 @@ const dom_util = {
     }
 }
 
-module.exports = {
-    dom_util
-}
+export default dom_util

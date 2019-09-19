@@ -1,77 +1,88 @@
-import { is_util } from './is_util.js'
-import { dom_util } from './dom_util.js'
-
-const WIDTH = 400
-const HEIGHT = 400
-const SECOND_3 = 3000
-
-const MiniCarouselHTML = {
-    _html: `
-        <div class="mini-carousel-scroller">
-            <div class="mini-carousel-container">
-                <div class="mini-carousel-col mini-carousel-left"> 
-                    <a class="mini-carousel-arrow" id="left-arrow"></a>
-                </div>
-                <div class="mini-carousel-col mini-carousel-center">
-                    <div class="mini-carousel-viewport">
-                        <ol class="mini-carousel-row" style="transform: translateX(-280px);">
-                            <li class="mini-carousel-card">
-                                <a class="img-link">
-                                    <img src="/images/Sub_Card_A/Sub_Card_A01.jpg" alt="Homecoming New Series">
-                                </a>
-                            </li>
-                            <li class="mini-carousel-card">
-                                <a class="img-link">
-                                    <img src="/images/Sub_Card_A/Sub_Card_A02.jpg" alt="The Man in the High Castle">
-                                </a>
-                            </li>
-                            <li class="mini-carousel-card">
-                                <a class="img-link">
-                                    <img src="/images/Sub_Card_A/Sub_Card_A03.jpg" alt="The Marvelous Mrs.Meisel">
-                                </a>
-                            </li>
-                            <li class="mini-carousel-card">
-                                <a class="img-link">
-                                    <img src="/images/Sub_Card_A/Sub_Card_A04.jpg" alt="Tom Clansy's Jack Lyan">
-                                </a>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-                <div class="mini-carousel-col mini-carousel-right">
-                    <a class="mini-carousel-arrow" id="right-arrow"></a>
-                </div>
-            </div>
-        </div>`,
-
-    getHTML() {
-        return this._html
-    },
-
-    insertHTML(container, position){
-        container.insertAdjacentHTML(position, this.getHTML())
-    }
-}
-
-const MiniCarouselMap = {
-    childMap: {
-        "left": "lastElementChild",
-        "right": "firstElementChild"
-    },
-    insertMap: {
-        "left": "afterbegin",
-        "right": "beforeend"
-    }
-}
+import is_util from './is_util.js'
+import dom_util from './dom_util.js'
 
 class MiniCarousel {
-    constructor(imageWidth, imageHeight, interval) {
+    constructor(container, imageWidth, imageHeight, interval) {
         this.imageWidth = imageWidth || 300
         this.imageHeight = imageHeight || 300
-        this.interval = interval || SECOND_3
+        this.imageNumber = 4    //FIXME: 이후 fetch API와 연동하여 수정
+        this.interval = interval || 1000
         this.intervalId = ""
         this.direction = "right"
+        this.elements = {}
+        this.container = container
+        this.map = {
+            childMap: {
+                "left": "lastElementChild",
+                "right": "firstElementChild"
+            },
+            insertMap: {
+                "left": "afterbegin",
+                "right": "beforeend"
+            }
+        }
+        this.html = 
+            `<div class="mini-carousel-scroller">
+                <div class="mini-carousel-container">
+                    <div class="mini-carousel-col mini-carousel-left"> 
+                        <a class="mini-carousel-arrow" id="left-arrow"></a>
+                    </div>
+                    <div class="mini-carousel-col mini-carousel-center">
+                        <div class="mini-carousel-viewport">
+                            <ol class="mini-carousel-row">
+                                <li class="mini-carousel-card">
+                                    <a class="img-link">
+                                        <img src="/images/Sub_Card_A/Sub_Card_A01.jpg" alt="Homecoming New Series">
+                                    </a>
+                                </li>
+                                <li class="mini-carousel-card">
+                                    <a class="img-link">
+                                        <img src="/images/Sub_Card_A/Sub_Card_A02.jpg" alt="The Man in the High Castle">
+                                    </a>
+                                </li>
+                                <li class="mini-carousel-card">
+                                    <a class="img-link">
+                                        <img src="/images/Sub_Card_A/Sub_Card_A03.jpg" alt="The Marvelous Mrs.Meisel">
+                                    </a>
+                                </li>
+                                <li class="mini-carousel-card">
+                                    <a class="img-link">
+                                        <img src="/images/Sub_Card_A/Sub_Card_A04.jpg" alt="Tom Clansy's Jack Lyan">
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="mini-carousel-col mini-carousel-right">
+                        <a class="mini-carousel-arrow" id="right-arrow"></a>
+                    </div>
+                </div>
+            </div>`
+    }
+
+    init() {
+        this.insertHTML(this.container)
+        this.setElements()
+        this.setViewSize(this.imageWidth, this.imageHeight, this.imageNumber)
+        // this.intervalId = this.startAutoSlide(this.interval)
+        setInterval(() => {
+            if (is_util.isNotWorking(this.intervalId)) {
+                this.intervalId = this.startAutoSlide(this.interval)
+                dom_util.disableElement(this.elements.button)
+            }
+        }, this.interval * 3)
+        this.addArrowEventHandler(this.elements.leftArrow, "left")
+        this.addArrowEventHandler(this.elements.rightArrow, "right")
+        this.addTransitionEndEventHandler(this.elements.miniCarouselRow)
+    }
+
+    insertHTML(container){
+        container.insertAdjacentHTML('afterbegin', this.html)
+    }
+
+    setElements(){
         this.elements = {
+            view: document.querySelector(".mini-carousel-viewport"),
             leftArrow: document.getElementById("left-arrow"),
             rightArrow: document.getElementById("right-arrow"),
             miniCarouselRow: document.querySelector(".mini-carousel-row"),
@@ -79,28 +90,22 @@ class MiniCarousel {
         }
     }
 
-    init() {
-        this.intervalId = this.startAutoSlide(this.interval)
-
-        setInterval(() => {
-            if (is_util.isNotWorking(this.intervalId)) {
-                this.intervalId = this.startAutoSlide(this.interval)
-                dom_util.disableElement(this.elements.button)
-            }
-        }, this.interval * 4)
-
-        this.addArrowEventHandler(this.elements.leftArrow, "left")
-        this.addArrowEventHandler(this.elements.rightArrow, "right")
-
-        this.addTransitionEndEventHandler(this.elements.miniCarouselRow)
+    setViewSize(imageWidth, imageHeight, imageNumber){
+        this.elements.view.style.width = `${imageWidth}px`
+        this.elements.view.style.height = `${imageHeight}px`
+        const row = this.elements.view.querySelector("ol")
+        row.style.transform = `translateX(-${this.imageWidth}px)`
+        row.style.width = `${imageWidth * imageNumber}px`
+        this.elements.view.querySelectorAll("img").forEach((imgTag) => {
+            imgTag.style.width = `${imageWidth}px`
+            imgTag.style.height = `${imageHeight}px`
+        })
     }
 
-    /** Set direction */
     setDirection(direction) {
         this.direction = direction
     }
 
-    /** Initialize intervalId */
     initializeIntervalId() {
         this.intervalId = ""
     }
@@ -143,9 +148,9 @@ class MiniCarousel {
      * @return {void} 
      */
     relocateCard(direction) {
-        const card = this.elements.miniCarouselRow[MiniCarouselMap.childMap[direction]]
+        const card = this.elements.miniCarouselRow[this.map.childMap[direction]]
         this.elements.miniCarouselRow.removeChild(card)
-        this.elements.miniCarouselRow.insertAdjacentElement(MiniCarouselMap.insertMap[direction], card)
+        this.elements.miniCarouselRow.insertAdjacentElement(this.map.insertMap[direction], card)
         this.elements.miniCarouselRow.style.transition = ''
         this.elements.miniCarouselRow.style.transform = `translateX(${-this.imageWidth}px)`
     }
@@ -182,8 +187,4 @@ class MiniCarousel {
     }
 }
 
-const container = document.getElementById("video-benefit-container")
-MiniCarouselHTML.insertHTML(container, 'afterbegin')
-
-const mini = new MiniCarousel(WIDTH, HEIGHT, SECOND_3)
-mini.init()
+export default MiniCarousel
