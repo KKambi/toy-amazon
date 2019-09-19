@@ -9,7 +9,7 @@ router.get('/main', function (req, res, next) {
     const filePathList = []
 
     fileList.forEach((filename) => {
-        const filePath = path.join(`/images/Main_Card`, filename)
+        let filePath = `images/Main_Card/${filename}`
         filePathList.push(filePath)
     })
     res.send(filePathList)

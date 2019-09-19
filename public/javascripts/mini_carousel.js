@@ -1,6 +1,8 @@
 import is_util from './is_util.js'
 import dom_util from './dom_util.js'
 import fetch from 'node-fetch'
+import path from 'path'
+
 import '../../public/stylesheets/mini_carousel.sass'
 
 class MiniCarousel {
@@ -89,15 +91,35 @@ class MiniCarousel {
     makeCard(imageURL){
         return this.getImagePath(imageURL).then((list) => {
             let html = ``
-            list.forEach((imagePath) => {
-                const cardHTML = 
-                    `<li class="mini-carousel-card">
-                        <a class="img-link">
-                            <img src="${imagePath}">
-                        </a>
-                    </li>
-                    `
-                html += cardHTML
+            list.forEach((imagePath, index) => {
+                if (this.options.background === true){
+                    const cardHTML = 
+                        `<li class='mini-carousel-card' style='width:${this.imageWidth}px; background-image: url("${path.resolve(imagePath)}")'>
+                            <div class="benefit" style="float: right;">
+                                <div class="benefit-header">
+                                    ${this.options.headers[index]}
+                                </div>
+                            <div class="benefit-blurb">
+                                ${this.options.blurb[index]}
+                            </div>
+                                <a class="benefit-cta" href="${this.options.ctaURL[index]}">
+                                    ${this.options.cta[index]}
+                                </a>
+                            </div>
+                        </li>
+                        `
+                    html += cardHTML
+                }
+                else {
+                    const cardHTML = 
+                        `<li class="mini-carousel-card">
+                            <a class="img-link">
+                                <img src="${imagePath}">
+                            </a>
+                        </li>
+                        `
+                    html += cardHTML
+                }
             })
             this.cards = html
             this.imageNumber = list.length
