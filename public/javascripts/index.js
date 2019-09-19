@@ -3,17 +3,57 @@ import BenefitCard from './benefit_card.js'
 
 const SECOND = 1000
 
-const carouselContainer = document.getElementById("video-benefit-container")
-const imageURL = "http://localhost:3000/images/sub/A"
-const miniCarousel = new MiniCarousel(carouselContainer, imageURL, 280, 210, SECOND * 3)
-miniCarousel.init('afterbegin')
+//main-carousel insert
+// const main_carousel_container = document.getElementById("main-beneift-container")
 
-const header = `Amazon Originals, <br>exclusively on Prime Video`
-const blurb = 
+
+//video-carousel insert
+const video_carousel_container = document.getElementById("video-benefit-container")
+const video_carousel_imageURL = "http://localhost:3000/images/sub/A"
+const video_carousel = new MiniCarousel(
+    video_carousel_container, 
+    video_carousel_imageURL, 
+    280, 210, SECOND * 3
+)
+video_carousel.init('afterbegin')
+
+//video-carousel-benefit insert
+const video_carousel_header = `Amazon Originals, <br>exclusively on Prime Video`
+const video_carousel_blurb = 
     `Prime Video is the only place 
     where you can watch Amazon Original series 
     like "The Marvelous Mrs. Maisel", "Tom Clancy's Jack Ryan", "Homecoming", and "The Man in the High Castle".`
-const cta = `Explore Prime Video`
-const ctaURL = `https://www.amazon.com/gp/video/storefront/ref=dvm_us_aq_np_dhb_be_optorigt1?ie=UTF8&amp;merchId=originals1`
-const benefitCard = new BenefitCard(carouselContainer, header, blurb, cta, ctaURL)
-benefitCard.init('beforeend')
+const video_carousel_cta = `Explore Prime Video&#9656;`
+const video_carousel_ctaURL = `https://www.amazon.com/gp/video/storefront/ref=dvm_us_aq_np_dhb_be_optorigt1?ie=UTF8&amp;merchId=originals1`
+const video_benefit_card = new BenefitCard(
+    video_carousel_container, 
+    video_carousel_header, 
+    video_carousel_blurb, 
+    video_carousel_cta, 
+    video_carousel_ctaURL
+)
+video_benefit_card.init('beforeend')
+
+//music-carousel insert
+const music_carousel_container = document.getElementById("music-benefit-container")
+const music_carousel_imageURL = "http://localhost:3000/images/sub/B"
+const music_carousel = new MiniCarousel(
+    music_carousel_container, 
+    music_carousel_imageURL, 
+    218, 218, SECOND * 3
+)
+music_carousel.init('afterbegin')
+
+//music-carousel-benefit insert
+const music_carousel_header = `Stay on top of the<br>hottest music`
+const music_carousel_blurb = `These songs and artists are the cream of this month's crop of new music. Check out the latest from Taylor Swift, Old Dominion, Kesha, and Brett Young.`
+const music_carousel_cta = `Explore Prime Music&#9656;`
+const music_carousel_ctaURL = `https://www.amazon.com/gp/dmusic/promotions/PrimeMusic?ref=hawkfire_prime_detail_page_benefit_desc`
+const music_benefit_card = new BenefitCard(
+    music_carousel_container, 
+    music_carousel_header, 
+    music_carousel_blurb, 
+    music_carousel_cta, 
+    music_carousel_ctaURL
+)
+music_benefit_card.init('beforeend')

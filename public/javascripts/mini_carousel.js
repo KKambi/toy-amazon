@@ -1,7 +1,7 @@
 import is_util from './is_util.js'
 import dom_util from './dom_util.js'
-import '../../public/stylesheets/mini_carousel.sass'
 import fetch from 'node-fetch'
+import '../../public/stylesheets/mini_carousel.sass'
 
 class MiniCarousel {
     constructor(container, imageURL, imageWidth, imageHeight, interval) {
@@ -97,16 +97,18 @@ class MiniCarousel {
                 html += cardHTML
             })
             this.cards = html
+            this.imageNumber = list.length
         })
     }
 
     setElements(){
+        this.container.setAttribute("style", "width: 90%; display: flex;")
         this.elements = {
-            view: document.querySelector(".mini-carousel-viewport"),
-            leftArrow: document.getElementById("left-arrow"),
-            rightArrow: document.getElementById("right-arrow"),
-            miniCarouselRow: document.querySelector(".mini-carousel-row"),
-            button: document.querySelector(".mini-carousel-arrow")
+            view: this.container.querySelector(".mini-carousel-viewport"),
+            leftArrow: this.container.querySelector("#left-arrow"),
+            rightArrow: this.container.querySelector("#right-arrow"),
+            miniCarouselRow: this.container.querySelector(".mini-carousel-row"),
+            button: this.container.querySelector(".mini-carousel-arrow")
         }
     }
 
