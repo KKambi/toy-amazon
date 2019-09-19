@@ -7,6 +7,7 @@ var sassMiddleware = require('node-sass-middleware');
 let favicon = require('serve-favicon')
 
 var indexRouter = require('./routes/index');
+const imagesRouter = require('./routes/images')
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/images', imagesRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

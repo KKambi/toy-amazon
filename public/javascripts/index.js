@@ -4,7 +4,8 @@ import BenefitCard from './benefit_card.js'
 const SECOND = 1000
 
 const carouselContainer = document.getElementById("video-benefit-container")
-const miniCarousel = new MiniCarousel(carouselContainer, 280, 210, SECOND * 3)
+const imageURL = "http://localhost:3000/images/sub/A"
+const miniCarousel = new MiniCarousel(carouselContainer, imageURL, 280, 210, SECOND * 3)
 miniCarousel.init('afterbegin')
 
 const header = `Amazon Originals, <br>exclusively on Prime Video`

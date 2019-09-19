@@ -1,11 +1,13 @@
 import is_util from './is_util.js'
 import dom_util from './dom_util.js'
 import '../../public/stylesheets/mini_carousel.sass'
+import fetch from 'node-fetch'
 
 class MiniCarousel {
-    constructor(container, imageWidth, imageHeight, interval) {
+    constructor(container, imageURL, imageWidth, imageHeight, interval) {
         this.imageWidth = imageWidth || 300
         this.imageHeight = imageHeight || 300
+        this.imageURL = imageURL || ""
         this.imageNumber = 4    //FIXME: 이후 fetch API와 연동하여 수정
         this.interval = interval || 1000
         this.intervalId = ""
@@ -22,63 +24,80 @@ class MiniCarousel {
                 "right": "beforeend"
             }
         }
-        this.html = 
-            `<div class="mini-carousel-scroller">
-                <div class="mini-carousel-container">
-                    <div class="mini-carousel-col mini-carousel-left"> 
-                        <a class="mini-carousel-arrow" id="left-arrow"></a>
-                    </div>
-                    <div class="mini-carousel-col mini-carousel-center">
-                        <div class="mini-carousel-viewport">
-                            <ol class="mini-carousel-row">
-                                <li class="mini-carousel-card">
-                                    <a class="img-link">
-                                        <img src="/images/Sub_Card_A/Sub_Card_A01.jpg" alt="Homecoming New Series">
-                                    </a>
-                                </li>
-                                <li class="mini-carousel-card">
-                                    <a class="img-link">
-                                        <img src="/images/Sub_Card_A/Sub_Card_A02.jpg" alt="The Man in the High Castle">
-                                    </a>
-                                </li>
-                                <li class="mini-carousel-card">
-                                    <a class="img-link">
-                                        <img src="/images/Sub_Card_A/Sub_Card_A03.jpg" alt="The Marvelous Mrs.Meisel">
-                                    </a>
-                                </li>
-                                <li class="mini-carousel-card">
-                                    <a class="img-link">
-                                        <img src="/images/Sub_Card_A/Sub_Card_A04.jpg" alt="Tom Clansy's Jack Lyan">
-                                    </a>
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="mini-carousel-col mini-carousel-right">
-                        <a class="mini-carousel-arrow" id="right-arrow"></a>
-                    </div>
-                </div>
-            </div>`
+        this.cards = {}
     }
 
     init() {
-        this.insertHTML(this.container)
-        this.setElements()
-        this.setViewSize(this.imageWidth, this.imageHeight, this.imageNumber)
-        this.intervalId = this.startAutoSlide(this.interval)
-        setInterval(() => {
-            if (is_util.isNotWorking(this.intervalId)) {
-                this.intervalId = this.startAutoSlide(this.interval)
-                dom_util.disableElement(this.elements.button)
-            }
-        }, this.interval * 3)
-        this.addArrowEventHandler(this.elements.leftArrow, "left")
-        this.addArrowEventHandler(this.elements.rightArrow, "right")
-        this.addTransitionEndEventHandler(this.elements.miniCarouselRow)
+        this.makeCard(this.imageURL).then(() => {
+            this.insertHTML(this.container)
+            this.setElements()
+            this.setViewSize(this.imageWidth, this.imageHeight, this.imageNumber)
+            this.intervalId = this.startAutoSlide(this.interval)
+            setInterval(() => {
+                if (is_util.isNotWorking(this.intervalId)) {
+                    this.intervalId = this.startAutoSlide(this.interval)
+                    dom_util.disableElement(this.elements.button)
+                }
+            }, this.interval * 3)
+            this.addArrowEventHandler(this.elements.leftArrow, "left")
+            this.addArrowEventHandler(this.elements.rightArrow, "right")
+            this.addTransitionEndEventHandler(this.elements.miniCarouselRow)
+        })
     }
 
     insertHTML(container){
-        container.insertAdjacentHTML('afterbegin', this.html)
+        const html = 
+        `<div class="mini-carousel-scroller">
+            <div class="mini-carousel-container">
+                <div class="mini-carousel-col mini-carousel-left"> 
+                    <a class="mini-carousel-arrow" id="left-arrow"></a>
+                </div>
+                <div class="mini-carousel-col mini-carousel-center">
+                    <div class="mini-carousel-viewport">
+                        <ol class="mini-carousel-row">
+                            ${this.cards}
+                        </ol>
+                    </div>
+                </div>
+                <div class="mini-carousel-col mini-carousel-right">
+                    <a class="mini-carousel-arrow" id="right-arrow"></a>
+                </div>
+            </div>
+        </div>`
+        container.insertAdjacentHTML('afterbegin', html)
+    }
+
+    getImagePath(imageURL){
+        return fetch(imageURL)
+            .then((res) => {
+                if (/(4..)|(5..)/.test(res.status) === true){
+                    console.error(res.statusText)
+                }
+                else {
+                    return res.json()
+                }
+            })
+            .then((list) => {
+                return list
+            })
+            .catch(err => console.log(err))
+    }
+
+    makeCard(imageURL){
+        return this.getImagePath(imageURL).then((list) => {
+            let html = ``
+            list.forEach((imagePath) => {
+                const cardHTML = 
+                    `<li class="mini-carousel-card">
+                        <a class="img-link">
+                            <img src="${imagePath}">
+                        </a>
+                    </li>
+                    `
+                html += cardHTML
+            })
+            this.cards = html
+        })
     }
 
     setElements(){
