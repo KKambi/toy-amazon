@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 import '../../public/stylesheets/mini_carousel.sass'
 
 class MiniCarousel {
-    constructor(container, imageURL, imageWidth, imageHeight, interval) {
+    constructor(container, imageURL, imageWidth, imageHeight, interval, options) {
         this.imageWidth = imageWidth || 300
         this.imageHeight = imageHeight || 300
         this.imageURL = imageURL || ""
@@ -14,6 +14,7 @@ class MiniCarousel {
         this.direction = "right"
         this.elements = {}
         this.container = container
+        this.options = options || {}
         this.map = {
             childMap: {
                 "left": "lastElementChild",
@@ -42,6 +43,7 @@ class MiniCarousel {
             this.addArrowEventHandler(this.elements.leftArrow, "left")
             this.addArrowEventHandler(this.elements.rightArrow, "right")
             this.addTransitionEndEventHandler(this.elements.miniCarouselRow)
+            if(this.options.shadow === false) this.removeShadow()
         })
     }
 
@@ -131,6 +133,12 @@ class MiniCarousel {
 
     initializeIntervalId() {
         this.intervalId = ""
+    }
+
+    removeShadow(){
+        const center = this.container.querySelector(".mini-carousel-center")
+        center.className += " no-before"
+        center.className += " no-after"
     }
 
     /** 

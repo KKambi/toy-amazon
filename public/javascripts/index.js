@@ -4,8 +4,15 @@ import BenefitCard from './benefit_card.js'
 const SECOND = 1000
 
 //main-carousel insert
-// const main_carousel_container = document.getElementById("main-beneift-container")
-
+const main_carousel_container = document.getElementById("main-beneift-container")
+const main_carousel_imageURL = "http://localhost:3000/images/main"
+const main_carousel = new MiniCarousel(
+    main_carousel_container, 
+    main_carousel_imageURL, 
+    595, 468, SECOND * 3,
+    { "shadow": false }
+)
+main_carousel.init('afterbegin')
 
 //video-carousel insert
 const video_carousel_container = document.getElementById("video-benefit-container")
@@ -40,7 +47,7 @@ const music_carousel_imageURL = "http://localhost:3000/images/sub/B"
 const music_carousel = new MiniCarousel(
     music_carousel_container, 
     music_carousel_imageURL, 
-    218, 218, SECOND * 3
+    220, 220, SECOND * 3
 )
 music_carousel.init('afterbegin')
 

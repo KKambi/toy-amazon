@@ -40,6 +40,10 @@ $mini-arrow-background-size: 158px auto
     padding-left: 20px
     padding-right: 20px
     position: relative
+    &.no-before::before
+        display: none
+    &.no-after::after
+        display: none
 
 .mini-carousel-center::before
     z-index: -1
@@ -73,6 +77,5 @@ $mini-arrow-background-size: 158px auto
 .mini-carousel-row
     height: 100%
     .mini-carousel-card
-        width: 25%
         height: 100%
         display: inline-block
