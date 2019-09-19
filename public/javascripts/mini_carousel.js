@@ -44,6 +44,7 @@ class MiniCarousel {
             this.addArrowEventHandler(this.elements.rightArrow, "right")
             this.addTransitionEndEventHandler(this.elements.miniCarouselRow)
             if(this.options.shadow === false) this.removeShadow()
+            if(this.options.big === true) this.alignCenter()
         })
     }
 
@@ -104,7 +105,6 @@ class MiniCarousel {
     }
 
     setElements(){
-        this.container.setAttribute("style", "width: 90%; display: flex;")
         this.elements = {
             view: this.container.querySelector(".mini-carousel-viewport"),
             leftArrow: this.container.querySelector("#left-arrow"),
@@ -133,6 +133,10 @@ class MiniCarousel {
 
     initializeIntervalId() {
         this.intervalId = ""
+    }
+
+    alignCenter(){
+        this.container.setAttribute("style", "justify-content: center")
     }
 
     removeShadow(){

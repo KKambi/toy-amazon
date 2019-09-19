@@ -9,8 +9,11 @@ const main_carousel_imageURL = "http://localhost:3000/images/main"
 const main_carousel = new MiniCarousel(
     main_carousel_container, 
     main_carousel_imageURL, 
-    595, 468, SECOND * 3,
-    { "shadow": false }
+    1280, 400, SECOND * 3,
+    { 
+        "shadow": false,
+        "big": true
+    }
 )
 main_carousel.init('afterbegin')
 
