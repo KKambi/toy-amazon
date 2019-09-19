@@ -1,5 +1,6 @@
 import is_util from './is_util.js'
 import dom_util from './dom_util.js'
+import '../../public/stylesheets/mini_carousel.sass'
 
 class MiniCarousel {
     constructor(container, imageWidth, imageHeight, interval) {
@@ -64,7 +65,7 @@ class MiniCarousel {
         this.insertHTML(this.container)
         this.setElements()
         this.setViewSize(this.imageWidth, this.imageHeight, this.imageNumber)
-        // this.intervalId = this.startAutoSlide(this.interval)
+        this.intervalId = this.startAutoSlide(this.interval)
         setInterval(() => {
             if (is_util.isNotWorking(this.intervalId)) {
                 this.intervalId = this.startAutoSlide(this.interval)
@@ -93,13 +94,14 @@ class MiniCarousel {
     setViewSize(imageWidth, imageHeight, imageNumber){
         this.elements.view.style.width = `${imageWidth}px`
         this.elements.view.style.height = `${imageHeight}px`
-        const row = this.elements.view.querySelector("ol")
-        row.style.transform = `translateX(-${this.imageWidth}px)`
-        row.style.width = `${imageWidth * imageNumber}px`
         this.elements.view.querySelectorAll("img").forEach((imgTag) => {
             imgTag.style.width = `${imageWidth}px`
             imgTag.style.height = `${imageHeight}px`
         })
+        
+        const row = this.elements.view.querySelector("ol")
+        row.style.transform = `translateX(-${this.imageWidth}px)`
+        row.style.width = `${imageWidth * imageNumber}px`
     }
 
     setDirection(direction) {
