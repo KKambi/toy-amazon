@@ -15,7 +15,7 @@ const main_card = new MainCard(
     280,
     {
         "center": true,
-        "buttonNumber": [4, 5, 4, 2, 2],
+        "buttons": [4, 5, 4, 2, 2],
         "colors": ["2B87AE", "CB0B83", "A90066", "008476", "FC5F36"]
     }
 )

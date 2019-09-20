@@ -19,18 +19,43 @@ class MainCard {
 
     insertHTML(container = this.container){
         let html = ""
-        let colorList = this.options.colors
+        let buttonStart = 0
         for (let i=0; i<this.cardNumber; i++){
-            const color = `#${colorList[i]}`
-            const cardHTML = 
-            `<div class="main-card" style="width:${this.cardWidth}px; height:${this.cardHeight}px; background-color:${color}"></div>`
+            const color = `#${this.options.colors[i]}`
+            const buttonNumber = this.options.buttons[i]
+            
+            const buttonHTML = this.makeButtonHTML(buttonStart, buttonNumber)
+            buttonStart += buttonNumber
+
+            const cardHTML = this.makeCardHTML(buttonHTML, this.cardWidth, this.cardHeight, color)
             html += cardHTML
         }
         html = `
-        <div class="main-card-row" >
+        <div class="main-card-row">
             ${html}
         </div>`
         container.insertAdjacentHTML('afterbegin', html)
+    }
+
+    makeButtonHTML(start, number){
+        let html = ""
+        for (let i=start; i<start+number; i++){
+            let buttonHTML = `<button class="main-card-button main-card-button-${i}"></button>`
+            html += buttonHTML
+        }
+        html = `
+        <div class="main-card-button-row">
+            ${html}
+        </div>
+        `
+        return html
+    }    
+
+    makeCardHTML(buttonHTML, width, height, color){
+        return `
+            <div class="main-card" style="width:${width}px; height:${height}px; background-color:${color}">
+                ${buttonHTML}
+            </div>`
     }
 
     alignCenter(container = this.container){
