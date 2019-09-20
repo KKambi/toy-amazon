@@ -6,6 +6,18 @@ import main_carousel_options from './main_carousel_options.js'
 
 const SECOND = 1000
 
+
+//main-carousel insert
+const main_carousel_container = document.getElementById("main-beneift-container")
+const main_carousel_imageURL = "http://localhost:3000/images/main"
+const main_carousel = new MiniCarousel(
+    main_carousel_container, 
+    main_carousel_imageURL, 
+    1280, 400, SECOND * 3,
+    main_carousel_options
+    )
+    main_carousel.init('afterbegin')
+    
 //main-card insert
 const main_card_container = document.getElementById("main-card-continaer")
 const main_card = new MainCard(
@@ -16,21 +28,11 @@ const main_card = new MainCard(
     {
         "center": true,
         "buttons": [4, 5, 4, 2, 2],
-        "colors": ["2B87AE", "CB0B83", "A90066", "008476", "FC5F36"]
+        "colors": ["2B87AE", "CB0B83", "A90066", "008476", "FC5F36"],
+        "carouselContainer": main_carousel_container
     }
 )
 main_card.init()
-
-//main-carousel insert
-const main_carousel_container = document.getElementById("main-beneift-container")
-const main_carousel_imageURL = "http://localhost:3000/images/main"
-const main_carousel = new MiniCarousel(
-    main_carousel_container, 
-    main_carousel_imageURL, 
-    1280, 400, SECOND * 3,
-    main_carousel_options
-)
-main_carousel.init('afterbegin')
 
 //video-carousel insert
 const video_carousel_container = document.getElementById("video-benefit-container")
