@@ -7,16 +7,16 @@ import '../../public/stylesheets/mini_carousel.sass'
 
 class MiniCarousel {
     constructor(container, imageURL, imageWidth, imageHeight, interval, options) {
+        this.container = container
         this.imageWidth = imageWidth || 300
         this.imageHeight = imageHeight || 300
         this.imageURL = imageURL || ""
-        this.imageNumber = 4    //FIXME: 이후 fetch API와 연동하여 수정
         this.interval = interval || 1000
+        this.options = options || {}
+        this.imageNumber = 4    //FIXME: 이후 fetch API와 연동하여 수정
         this.intervalId = ""
         this.direction = "right"
         this.elements = {}
-        this.container = container
-        this.options = options || {}
         this.map = {
             childMap: {
                 "left": "lastElementChild",
@@ -46,7 +46,7 @@ class MiniCarousel {
             this.addArrowEventHandler(this.elements.rightArrow, "right")
             this.addTransitionEndEventHandler(this.elements.miniCarouselRow)
             if(this.options.shadow === false) this.removeShadow()
-            if(this.options.big === true) this.alignCenter()
+            if(this.options.center === true) this.alignCenter()
         })
     }
 
@@ -94,7 +94,7 @@ class MiniCarousel {
             list.forEach((imagePath, index) => {
                 if (this.options.background === true){
                     const cardHTML = 
-                        `<li class='mini-carousel-card' style='width:${this.imageWidth}px; background-image: url("${path.resolve(imagePath)}")'>
+                        `<li class='mini-carousel-card mini-carousel-card-${index}' style='width:${this.imageWidth}px; background-image: url("${path.resolve(imagePath)}")'>
                             <div class="benefit" style="float: right;">
                                 <div class="benefit-header">
                                     ${this.options.headers[index]}
