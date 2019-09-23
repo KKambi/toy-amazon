@@ -1,15 +1,18 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var sassMiddleware = require('node-sass-middleware');
-let favicon = require('serve-favicon')
+//import module
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const sassMiddleware = require('node-sass-middleware');
+const favicon = require('serve-favicon')
 
-var indexRouter = require('./routes/index');
+//import router
+const indexRouter = require('./routes/index');
 const imagesRouter = require('./routes/images')
 
-var app = express();
+//create express-server
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'src/views'));
@@ -28,6 +31,7 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// routing
 app.use('/', indexRouter);
 app.use('/images', imagesRouter)
 
