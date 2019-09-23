@@ -20,6 +20,7 @@ const main_carousel_options = {
         `Read next month's new releases today`,
         `Earn more with Prime Rewards`,
         `Unlimited, free photo storage`,
+        'Kakao',
     ],
     blurb: [
         `Super-fast delivery, tens of millions of items, and flexible delivery options to fit your life. Plus, Prime members get FREE One-Day Delivery on tens of millions of items. `,
@@ -57,7 +58,7 @@ const main_carousel_options = {
         `Explore Prime Reading`,
         `Learn more about Amazon First Reads`,
         `Learn more about Prime Rewards`,
-        `Explore Amazon Photos`
+        `Explore Amazon Photos`,
     ],
     ctaURL: [
         `https://www.amazon.com/b?node=15247183011`,
@@ -76,7 +77,7 @@ const main_carousel_options = {
         `https://www.amazon.com/kindle-dbs/fd/prime-pr`,
         `https://www.amazon.com/kindlefirst`,
         `https://www.amazon.com/b?node=16914437011&ref=acqNPrewards`,
-        'https://www.amazon.com/b?node=13234696011'
+        'https://www.amazon.com/b?node=13234696011',
     ]
 }
 

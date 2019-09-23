@@ -94,7 +94,7 @@ class MiniCarousel {
             list.forEach((imagePath, index) => {
                 if (this.options.background === true){
                     const cardHTML = 
-                        `<li class='mini-carousel-card mini-carousel-card-${index}' style='width:${this.imageWidth}px; background-image: url("${path.resolve(imagePath)}")'>
+                        `<li class="mini-carousel-card" data-id="${index}" style='width:${this.imageWidth}px; background-image: url("${path.resolve(imagePath)}")'>
                             <div class="benefit" style="float: right;">
                                 <div class="benefit-header">
                                     ${this.options.headers[index]}
