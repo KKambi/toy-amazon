@@ -3,7 +3,7 @@ import dom_util from '../utils/dom_util.js'
 import fetch from 'node-fetch'
 import path from 'path'
 
-import '../stylesheets/main_card.sass'
+import '../stylesheets/mini_carousel.sass'
 
 class MiniCarousel {
     constructor(container, imageURL, imageWidth, imageHeight, interval, options) {

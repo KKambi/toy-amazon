@@ -1,5 +1,6 @@
 const MIN_30 = 1800000
-const SESSION_ID = "amazon_session_id"
+const SESSION_NAME = "amazon_session_id"
+const SESSION_SECRET = "ThisIsSecretKey"
 const COOKIE_OPTIONS = {
     maxAge: MIN_30,
     httpOnly: true
@@ -7,6 +8,7 @@ const COOKIE_OPTIONS = {
 
 module.exports = {
     MIN_30,
-    SESSION_ID,
+    SESSION_NAME,
+    SESSION_SECRET,
     COOKIE_OPTIONS
 }

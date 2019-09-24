@@ -15,7 +15,7 @@ class MainCard {
         this.insertHTML()
 
         if (this.options.center === true) this.alignCenter()
-        if (this.options.carouselContainer) this.addSlideEvent()
+        // if (this.options.carouselContainer) this.addSlideEvent()
     }
 
     insertHTML(container = this.container){
