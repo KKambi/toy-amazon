@@ -1,6 +1,3 @@
-# Create Bucket
-/src/javascripts/s3.js
-
 # Logs
 logs
 *.log

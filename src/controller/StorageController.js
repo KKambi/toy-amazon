@@ -1,16 +1,16 @@
 //import library
 const AWS = require('aws-sdk')
 const fs = require('fs')
+const path = require('path')
+require('dotenv').config();
 
 //AWS S3 setting
 const endpoint = new AWS.Endpoint('https://kr.object.ncloudstorage.com')
-const region = 'kr-standard';
-const access_key = 'vlZ7Ayefuoki9QCa1xb2';
-const secret_key = 'dx9to7moOlUyLBqxjSZAn5LZgdyZ1Irtpa80Fv1d';
 const bucket_name = 'boostcamp-amazon-s3';
+const region = 'kr-standard';
 AWS.config.update({
-    accessKeyId: access_key,
-    secretAccessKey: secret_key
+    accessKeyId: process.env.NCLOUD_ACCESS_KEY,
+    secretAccessKey: process.env.NCLOUD_SECRET_KEY
 });
 
 //Connect AWS S3 API
@@ -49,7 +49,7 @@ const StorageController = {
             Bucket: bucket_name,
             Key: object_name,
             Body: fs.createReadStream(local_file_name)  //스트림 형식으로 업로드할 파일을 전송
-        }, options).promise();
+        }).promise();
     },
 
     downloadObject(object_name, local_file_path){
@@ -77,3 +77,8 @@ const StorageController = {
 module.exports = {
     StorageController
 }
+
+const local_path = path.resolve(__dirname, '../../public/images/favicon.ico');
+(async() => {
+    StorageController.uploadObject('test', local_path);
+})();
