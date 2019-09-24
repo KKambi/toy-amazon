@@ -5,9 +5,9 @@ const path = require('path')
 require('dotenv').config();
 
 //AWS S3 setting
-const endpoint = new AWS.Endpoint('https://kr.object.ncloudstorage.com')
-const bucket_name = 'boostcamp-amazon-s3';
-const region = 'kr-standard';
+const endpoint = new AWS.Endpoint(process.env.NCLOUD_S3_ENDPOINT)
+const bucket_name = process.env.NCLOUD_S3_BUCKET_NAME
+const region = process.env.NCLOUD_S3_BUCKET_NAME;
 AWS.config.update({
     accessKeyId: process.env.NCLOUD_ACCESS_KEY,
     secretAccessKey: process.env.NCLOUD_SECRET_KEY
