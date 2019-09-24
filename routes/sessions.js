@@ -1,36 +1,15 @@
 /* import library */
 const express = require('express');
 const router = express.Router();
-const mysql = require('mysql');
 require('dotenv').config();
 
 // import util
 const cookie = require('../src/utils/cookie_util.js')
 
-// MySQL Connect
-const connection = mysql.createConnection({
-    host    : process.env.MYSQL_HOST,
-    user    : process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    port    : 3306,
-    database: process.env.MYSQL_DATABASE
-})
-
-connection.connect();
-
-router.get('/query', function(req, res, next){
-    connection.query('SELECT * from user', function (err, rows, fields) {
-        if (!err)
-            console.log('The solution is: ', rows);
-        else
-            console.log('Error while performing Query.', err);
-    });
-})
-
 // GET to login page
 router.get('/new', function (req, res, next) {
     const valid = req.query.valid;
-    res.render('todo_login', { valid: valid });
+    res.render('login', { valid: valid });
 });
 
 // POST for login

@@ -5,10 +5,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/entry/index.entry.js',
+  entry: {
+    index: './src/entry/index.entry.js',
+    login: './src/entry/login.entry.js'
+  },
   output: {
     path: path.resolve(__dirname, 'public/javascripts'),
-    filename: 'index.bundle.js'
+    filename: '[name].bundle.js'
   },
   module: {
     rules: [
