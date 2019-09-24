@@ -32,7 +32,9 @@ router.post('/create', function (req, res, next) {
 
 // POST for logout
 router.post('/destroy', function (req, res, next){
-    req.session.destroy();
+    req.session.destroy((err) => {
+        if (err) console.log(err);
+    });
     res.clearCookie(cookie.SESSION_NAME);
     res.redirect('/')
 })
