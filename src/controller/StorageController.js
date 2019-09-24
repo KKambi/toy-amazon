@@ -28,28 +28,39 @@ const StorageController = {
         }).promise()
     },
 
+    async getBucketList(){
+        let { Buckets } = await S3.listBuckets().promise();
+        return Buckets;
+    },
+
     async deleteBucket(){
         await S3.deleteBucket({
             Bucket: bucket_name
         }).promise();
     },
 
-    async getBuckets(){
-        let { Buckets } = await S3.listBuckets().promise();
-        return Buckets;
-    },
-
     async uploadObject(object_name, local_file_path){
-        // Multipart Upload file
-        let options = {
-            partSize: 5 * 1024 * 1024
-        };
         await S3.putObject({
             Bucket: bucket_name,
             Key: object_name,
             ACL: 'public-read',
             Body: fs.createReadStream(local_file_path)  //스트림 형식으로 업로드할 파일을 전송
-        }).promise();
+        }, (err) => {
+            if (err) console.log(err, err.stack); 
+        });
+    },
+
+    async getObject(object_name){
+        // Get url of file
+        let url = undefined;
+        await S3.getSignedUrl('getObject', {
+            Bucket: bucket_name,
+            Key: object_name
+        }, (err, data) => {
+            if (err) console.log(err, err.stack); 
+            else     url = data;
+        });
+        return url;
     },
 
     downloadObject(object_name, local_file_path){
@@ -78,10 +89,14 @@ module.exports = {
     StorageController
 }
 
-/* 예시
-const local_file_path = path.resolve(__dirname, "../../public/images/Main_Card/Main_Card_A01.jpg")
-const local_file_name = path.basename(local_file_path);
-(async () => {
-    await StorageController.uploadObject(local_file_name, local_file_path);
-})();
-*/
+// // File Upload Example
+// const local_file_path = path.resolve(__dirname, "../../public/images/Main_Card/Main_Card_A01.jpg")
+// const local_file_name = path.basename(local_file_path);
+// (async () => {
+//     await StorageController.uploadObject(local_file_name, local_file_path);
+// })();
+
+// // File Retrieve Example
+// (async() => {
+//     console.log(await StorageController.getObject(local_file_name))
+// })();
