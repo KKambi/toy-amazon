@@ -1,6 +1,7 @@
-import '../../public/stylesheets/reset.sass'
-import '../../public/stylesheets/index.sass'
+import '../stylesheets/reset.sass'
+import '../stylesheets/index.sass'
 
-import '../../public/javascripts/mini_carousel.js'
-import '../../public/javascripts/main_carousel_options.js'
-import '../../public/javascripts/index.js'
+import '../components/mini_carousel.js'
+
+import '../javascripts/main_carousel_options.js'
+import '../javascripts/index.js'

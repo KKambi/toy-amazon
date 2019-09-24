@@ -1,4 +1,4 @@
-import '../../public/stylesheets/benefit_card.sass'
+import '../stylesheets/benefit_card.sass'
 
 class BenefitCard{
     constructor(container, header, blurb, cta, ctaURL){

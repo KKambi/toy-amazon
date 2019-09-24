@@ -63,17 +63,17 @@ class MainCard {
         container.setAttribute("style", "justify-content: center")
     }
 
-    addSlideEvent(container = this.container, carouselContainer = this.options.carouselContainer){
-        const mainCardRow = container.querySelector(".main-card-row")
-        mainCardRow.addEventListener("click", (event) => {
-            if (event.target.className === "main-card-button"){
-                const buttonIndex = event.getAttribute("data-id")
-                const currentCard = carouselContainer.querySelector(".mini-carousel-row").children[1]
-                const currentCardIndex = card.getAttribute("data-id")
+    // addSlideEvent(container = this.container, carouselContainer = this.options.carouselContainer){
+    //     const mainCardRow = container.querySelector(".main-card-row")
+    //     mainCardRow.addEventListener("click", (event) => {
+    //         if (event.target.className === "main-card-button"){
+    //             const buttonIndex = event.getAttribute("data-id")
+    //             const currentCard = carouselContainer.querySelector(".mini-carousel-row").children[1]
+    //             const currentCardIndex = card.getAttribute("data-id")
                 
-            }
-        })
-    }
+    //         }
+    //     })
+    // }
 }
 
 export default MainCard

@@ -2,24 +2,25 @@
 const express = require('express');
 const router = express.Router();
 const session = require('express-session');
-const redis = require('redis')
+const redis = require('redis');
 
 // import util
-const constant = require('../src/utils/constant.js')
+const cookie = require('../src/utils/cookie_util.js')
+const uuid = require('../src/utils/uuid_util.js')
 
 // Session setting
 let RedisStore = require('connect-redis')(session)
 let client = redis.createClient()
 app.use(session({
-    name: "amazon_session_id",
+    name: cookie.SESSION_ID,
     genid: function(req){
-        return uuid;    //uuid 라이브러리릍 통해 세션id 반환
+        return uuid.createUniqueId();    //uuid 라이브러리릍 통해 세션id 반환
     },
     store: new RedisStore({ client }),
-    secret: 'asadlfkj!@#!@#dfgasdg',    //TODO: hash를 위한 문자열이래
+    secret: 'asadlfkj!@#!@#dfgasdg',    //hash를 위한 비밀키
     resave: true,
-    saveUninitialized: false,
-    cookie: constant.COOKIE_OPTIONS
+    saveUninitialized: true,
+    cookie: cookie.COOKIE_OPTIONS
 }))
 
 // GET to login page

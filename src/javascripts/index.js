@@ -1,7 +1,6 @@
-import MiniCarousel from './mini_carousel.js'
-import BenefitCard from './benefit_card.js'
-import MainCard from './main_card.js'
-
+import MiniCarousel from '../components/mini_carousel.js'
+import BenefitCard from '../components/benefit_card.js'
+import MainCard from '../components/main_card.js'
 import main_carousel_options from './main_carousel_options.js'
 
 const SECOND = 1000
