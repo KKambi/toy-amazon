@@ -39,16 +39,16 @@ const StorageController = {
         return Buckets;
     },
 
-    async uploadObject(object_name, local_file_name){
+    async uploadObject(object_name, local_file_path){
         // Multipart Upload file
         let options = {
             partSize: 5 * 1024 * 1024
         };
-
         await S3.putObject({
             Bucket: bucket_name,
             Key: object_name,
-            Body: fs.createReadStream(local_file_name)  //스트림 형식으로 업로드할 파일을 전송
+            ACL: 'public-read',
+            Body: fs.createReadStream(local_file_path)  //스트림 형식으로 업로드할 파일을 전송
         }).promise();
     },
 
@@ -78,7 +78,10 @@ module.exports = {
     StorageController
 }
 
-const local_path = path.resolve(__dirname, '../../public/images/favicon.ico');
-(async() => {
-    StorageController.uploadObject('test', local_path);
+/* 예시
+const local_file_path = path.resolve(__dirname, "../../public/images/Main_Card/Main_Card_A01.jpg")
+const local_file_name = path.basename(local_file_path);
+(async () => {
+    await StorageController.uploadObject(local_file_name, local_file_path);
 })();
+*/
