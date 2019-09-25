@@ -66,8 +66,7 @@ const User = {
             try {
                 const [rows] = await connection.query(findAllQuery);
                 connection.release();
-                if (rows.length) return rows;
-                return false;
+                return rows;
             } catch(err){
                 console.log(`Query Error ~ ${err}`);
                 connection.release();

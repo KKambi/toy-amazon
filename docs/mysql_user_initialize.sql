@@ -1,3 +1,5 @@
+USE amazon;
+
 DROP TABLE IF EXISTS user;
 (user, password, name, birth, gender, email, phone, interest, admin)
 CREATE TABLE user(

@@ -1,3 +1,5 @@
+USE amazon;
+
 DROP TABLE IF EXISTS carousel;
 
 CREATE TABLE carousel(
@@ -7,13 +9,13 @@ CREATE TABLE carousel(
 );
 
 INSERT INTO carousel (name) VALUES (
-    '메인',
+    '메인'
 );
 
 INSERT INTO carousel (name) VALUES (
-    '비디오',
+    '비디오'
 );
 
 INSERT INTO carousel (name) VALUES (
-    '음악',
+    '음악'
 );
