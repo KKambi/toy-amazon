@@ -5,7 +5,6 @@ import main_carousel_options from './main_carousel_options.js'
 
 const SECOND = 1000
 
-
 //main-carousel insert
 const main_carousel_container = document.getElementById("main-beneift-container")
 const main_carousel_imageURL = "http://localhost:3000/images/main"
@@ -14,8 +13,8 @@ const main_carousel = new MiniCarousel(
     main_carousel_imageURL, 
     1280, 400, SECOND * 3,
     main_carousel_options
-    )
-    main_carousel.init('afterbegin')
+);
+main_carousel.init('afterbegin')
     
 //main-card insert
 const main_card_container = document.getElementById("main-card-continaer")

@@ -19,7 +19,8 @@ exports.config = () => {
             if (password === savedPassword){
                 const userInfo = {
                     "user_id": userRecord.user_id,
-                    "name": userRecord.name
+                    "name": userRecord.name,
+                    "admin": userRecord.admin
                 }
                 //로그인 성공 시, 사용자 정보를 serializeUser 함수에 넘겨줌
                 return done(null, userInfo, { message: "로그인 성공!" });
