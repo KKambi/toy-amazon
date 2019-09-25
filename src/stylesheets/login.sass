@@ -3,6 +3,17 @@ $error-font-color: #FF0000
 $message-font-size: 1.3rem
 $message-font-weight: 500
 $message-top-margin: 5px
+$login-background-color: #283647cb
+$login-background-hover-color: #232F3E
+
+//bootstrap 덮어쓰기 위함
+.btn-success
+    background-color: $login-background-color
+    border-color: $login-background-color
+
+.btn-success:hover
+    background-color: $login-background-hover-color
+    border-color: $login-background-hover-color
 
 .message
     font-size: $message-font-size
