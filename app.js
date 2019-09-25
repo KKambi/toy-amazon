@@ -8,6 +8,7 @@ const sassMiddleware = require('node-sass-middleware');
 const favicon = require('serve-favicon')
 const session = require('express-session');
 const redis = require('redis');
+require('dotenv').config();
 
 //import router
 const indexRouter = require('./routes/index');
@@ -24,9 +25,9 @@ const app = express();
 // Session setting
 let RedisStore = require('connect-redis')(session)
 let client = redis.createClient({
-    host: "106.10.42.187",
+    host: process.env.REDIS_HOST,
     port: 6379,
-    password: "khb!02030504"
+    password: process.env.REDIS_PASSWORD
 })
 app.use(session({
     name: cookie.SESSION_NAME,

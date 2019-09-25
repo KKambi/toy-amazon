@@ -1,6 +1,8 @@
-const mysql = require('mysql');
+// import library
+const mysql = require('mysql2/promise');
+require('dotenv').config();
 
-// MySQL Connect
+// MySQL create pool
 const pool = mysql.createPool({
     host    : process.env.MYSQL_HOST,
     port    : 3306,
@@ -10,15 +12,7 @@ const pool = mysql.createPool({
     connectionLimit: 20,
     waitForConnections: true
 })
-const findQuery = `SELECT * FROM user WHERE user=admin`
-pool.getConnection((err, connection) => {
-    connection.query(findQuery, (err, rows) => {
-        connection.release();
-        if (!err) {
-            console.log(rows);
-        }
-    });
-})
+
 module.exports = {
     pool
 }
