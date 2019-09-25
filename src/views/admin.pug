@@ -8,28 +8,22 @@ html
     title= title
   body
     div#navbar
-        div.sign-container
-            div.sign-welcome-message
-                if signed
-                    | #{name}(#{user_id}) 님 환영합니다
-                else
-                    | 환영합니다
-            div.sign-buttons
-                if signed
-                    if isAdmin
-                        div.sign-admin-button
-                            a.sign-signin-link(href="./admin")
-                                | 관리
-                    div.sign-logout-button
-                        a.sign-logout-link(onclick="document.querySelector('#logout-form').submit();")
-                            | 로그아웃
-                        form#logout-form(action="/sessions/destroy" method="POST" style="display:none;")
-                else
-                    div.sign-signin-button
-                        a.sign-signin-link(href="./users/new")
-                            | 회원가입
-                    div.sign-login-button
-                        a.sign-login-link(href="./sessions/new")
-                            | 로그인
+        div.nav-container
+            div.nav-welcome-message
+                | 관리자 페이지
+            div.nav-buttons
+                div.nav-user-button
+                    a.nav-user-link
+                        | 사용자
+                div.nav-carousel-button
+                    a.nav-carousel-link
+                        | 카로셀
+                div.nav-item-button
+                    a.nav-item-link
+                        | 아이템
+                div.nav-index-button
+                    a.nav-index-link(href="/")
+                        | 돌아가기
+    div#content-container
 
-    script(src="/javascripts/index.bundle.js")
+    script(src="/javascripts/admin.bundle.js")

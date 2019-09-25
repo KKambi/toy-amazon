@@ -8,28 +8,28 @@ html
     title= title
   body
     div#navbar
-        div.sign-container
-            div.sign-welcome-message
+        div.nav-container
+            div.nav-welcome-message
                 if signed
                     | #{name}(#{user_id}) 님 환영합니다
                 else
                     | 환영합니다
-            div.sign-buttons
+            div.nav-buttons
                 if signed
                     if isAdmin
-                        div.sign-admin-button
-                            a.sign-signin-link(href="./admin")
+                        div.nav-admin-button
+                            a.nav-signin-link(href="./admin")
                                 | 관리
-                    div.sign-logout-button
-                        a.sign-logout-link(onclick="document.querySelector('#logout-form').submit();")
+                    div.nav-logout-button
+                        a.nav-logout-link(onclick="document.querySelector('#logout-form').submit();")
                             | 로그아웃
                         form#logout-form(action="/sessions/destroy" method="POST" style="display:none;")
                 else
-                    div.sign-signin-button
-                        a.sign-signin-link(href="./users/new")
+                    div.nav-signin-button
+                        a.nav-signin-link(href="./users/new")
                             | 회원가입
-                    div.sign-login-button
-                        a.sign-login-link(href="./sessions/new")
+                    div.nav-login-button
+                        a.nav-login-link(href="./sessions/new")
                             | 로그인
     div#main-card-continaer.container
     div#main-beneift-container.container
