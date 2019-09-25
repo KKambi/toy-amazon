@@ -5,7 +5,14 @@ const is_util = {
     
     isNotWorking(intervalId){
         return (intervalId === undefined || intervalId === "")
+    },
+
+    isSame(inputPassword, savedPassword){
+        return (inputPassword === savedPassword);
     }
 }
 
 export default is_util
+module.exports = {
+    isSame
+}

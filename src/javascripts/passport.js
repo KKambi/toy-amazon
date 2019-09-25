@@ -1,5 +1,10 @@
+// import library
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+
+// import module
+const { User } = require('../model/User.js')
+const { isSame } = require('../utils/is_util.js')
 
 module.exports = function(){
     passport.serializeUser((user, done) => {
@@ -11,16 +16,25 @@ module.exports = function(){
     })
 
     passport.use(new LocalStrategy({
-        usernameField: 'id',
+        usernameField: 'user',
         passwordField: 'password',
         session: true,
         passReqToCallback: false
-    }, (id, password, done) => {
+    }, (user, password, done) => {
         //MySQL DB에서 유저의 정보를 대조하는 코드
-        //로그인 성공시
-        return done(null, user);
+        const userRecord = User.find(user);  
+        if (userRecord){
+            const savedPassword = userRecord.password;
+            if (isSame(password, savedPassword){
+                const userInfo = {
+                    "user": user,
+                    "name": userRecord.name
+                }
+                return done(null, user);
+            }
+        }
 
         //로그인 실패시
-        return done(null, false, { message:"아이디 혹은 비밀번호가 틀렸습니다."})
+        return done(null, false, { message: "아이디 혹은 비밀번호가 틀렸습니다."})
     }))
 }
