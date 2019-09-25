@@ -9,8 +9,9 @@ html
   body
     div#header
         div
-                | #{user_id}님 환영합니다
-                | 이름이 #{name}야?
+            if signed
+                | #{name}님 환영합니다
+                | (#{user_id})
         div#sign-container
             a(href="./sessions/new") 로그인
             a(onclick="document.querySelector('#login-form').submit();") 로그아웃

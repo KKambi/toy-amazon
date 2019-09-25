@@ -54,7 +54,7 @@ app.use(session({
     },
     store: new RedisStore({ client }),
     secret: cookie.SESSION_SECRET,  //hash를 위한 비밀키
-    resave: true,
+    resave: false,
     saveUninitialized: false,  //FIXME: passport.js와 관련이슈
     cookie: cookie.COOKIE_OPTIONS
 }))
