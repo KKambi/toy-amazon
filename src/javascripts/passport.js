@@ -4,37 +4,41 @@ const LocalStrategy = require('passport-local').Strategy;
 
 // import module
 const { User } = require('../model/User.js')
-const { isSame } = require('../utils/is_util.js')
 
-module.exports = function(){
-    passport.serializeUser((user, done) => {
-        done(null, user);  //user가 deserializeUser의 첫 번째 매개변수로 이동
-    })
-
-    passport.deserializeUser((user, done)  => {
-        done(null, user);
-    })
-
+exports.config = () => {
     passport.use(new LocalStrategy({
-        usernameField: 'user',
+        usernameField: 'user_id',
         passwordField: 'password',
         session: true,
         passReqToCallback: false
-    }, (user, password, done) => {
+    }, async (user_id, password, done) => {
         //MySQL DB에서 유저의 정보를 대조하는 코드
-        const userRecord = User.find(user);  
+        const userRecord = await User.find(user_id);  
         if (userRecord){
             const savedPassword = userRecord.password;
-            if (isSame(password, savedPassword){
+            if (password === savedPassword){
                 const userInfo = {
-                    "user": user,
+                    "user_id": userRecord.user_id,
                     "name": userRecord.name
                 }
-                return done(null, user);
+                //로그인 성공 시, 사용자 정보를 serializeUser 함수에 넘겨줌
+                return done(null, userInfo, { message: "로그인 성공!" });
             }
         }
 
         //로그인 실패시
-        return done(null, false, { message: "아이디 혹은 비밀번호가 틀렸습니다."})
+        return done(null, false, { message: "아이디 혹은 비밀번호가 틀렸습니다." })
     }))
+
+    //로그인 성공 시 사용자 정보를 세션에 저장
+    passport.serializeUser((userInfo, done) => {
+        // console.log("세션에 저장!", userInfo)
+        done(null, userInfo);  
+    })
+
+    //인증 후, 페이지 접근시 마다 사용자 정보를 저장된 세션에서 읽어옴.
+    passport.deserializeUser((userInfo, done)  => {
+        // console.log("저장된 세션값 읽음!", userInfo)
+        done(null, userInfo);
+    })
 }

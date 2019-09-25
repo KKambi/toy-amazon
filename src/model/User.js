@@ -11,8 +11,8 @@ const User = {
                 console.log(err)
                 return false;
             }
-            const insertQuery = `INSERT INTO user (user, password, name, birth, gender, email, phone, interest, admin) VALUES (
-                '${params.user}',
+            const insertQuery = `INSERT INTO user (user_id, password, name, birth, gender, email, phone, interest, admin) VALUES (
+                '${params.user_id}',
                 '${params.password}',
                 '${params.name}',
                 '${params.birth}',
@@ -41,12 +41,12 @@ const User = {
 
     async find(userId){
         try {
-            const findQuery = `SELECT * FROM user WHERE user='${userId}';`
+            const findQuery = `SELECT * FROM user WHERE user_id='${userId}';`
             const connection = await pool.getConnection(async conn => conn);
             try {
                 const [rows] = await connection.query(findQuery);
                 connection.release();
-                if (rows.length) return rows;
+                if (rows.length) return rows[0];
                 return false;
             } catch(err){
                 console.log(`Query Error ~ ${err}`);
@@ -80,7 +80,7 @@ const User = {
 
     async update(userId, attribute, value){
         try {
-            const updateQuery = `UPDATE user SET ${attribute} = '${value}' WHERE user='${userId}'`
+            const updateQuery = `UPDATE user SET ${attribute} = '${value}' WHERE user_id='${userId}'`
             const connection = await pool.getConnection(async conn => conn);
             try {
                 await connection.query(updateQuery);
@@ -99,7 +99,7 @@ const User = {
 
     async delete(userId){
         try {
-            const deleteQuery = `DELETE user WHERE user='${userId}'`
+            const deleteQuery = `DELETE user WHERE user_id='${userId}'`
             const connection = await pool.getConnection(async conn => conn);
             try {
                 await connection.query(deleteQuery);

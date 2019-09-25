@@ -7,6 +7,14 @@ html
     meta(name="author" content="KKambi")
     title= title
   body
+    div#header
+        div
+                | #{user_id}님 환영합니다
+                | 이름이 #{name}야?
+        div#sign-container
+            a(href="./sessions/new") 로그인
+            a(onclick="document.querySelector('#login-form').submit();") 로그아웃
+            form#login-form(action="/sessions/destroy" method="POST" style="display:none;")
     div#main-card-continaer.container
     div#main-beneift-container.container
     div#video-benefit-container.container

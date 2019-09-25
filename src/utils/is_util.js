@@ -12,7 +12,4 @@ const is_util = {
     }
 }
 
-export default is_util
-module.exports = {
-    isSame
-}
+export default is_util;

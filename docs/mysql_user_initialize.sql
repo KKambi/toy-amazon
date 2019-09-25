@@ -1,10 +1,10 @@
 USE amazon;
 
 DROP TABLE IF EXISTS user;
-(user, password, name, birth, gender, email, phone, interest, admin)
+
 CREATE TABLE user(
     id int unsigned AUTO_INCREMENT,
-    user varchar(30) NOT NULL UNIQUE,
+    user_id varchar(30) NOT NULL UNIQUE,
     password varchar(64) NOT NULL,
     name varchar(10) NOT NULL,
     birth varchar(10) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE user(
     PRIMARY KEY(id)
 );
 
-INSERT INTO user (user, password, name, birth, gender, email, phone, interest, admin) VALUES (
+INSERT INTO user (user_id, password, name, birth, gender, email, phone, interest, admin) VALUES (
     'user',
     '123123',
     '일반유저1',
@@ -28,7 +28,7 @@ INSERT INTO user (user, password, name, birth, gender, email, phone, interest, a
     0
 );
 
-INSERT INTO user (user, password, name, birth, gender, email, phone, interest, admin) VALUES (
+INSERT INTO user (user_id, password, name, birth, gender, email, phone, interest, admin) VALUES (
     'admin',
     '123123',
     '관리자1',

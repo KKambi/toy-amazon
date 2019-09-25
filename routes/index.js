@@ -3,9 +3,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { 
+    res.render('index', { 
     title: 'Amazon.com: Amazon Prime',
-    carousel_row_width: 280 
+    user_id: req.user.user_id,
+    name: req.user.name
   });
 });
 

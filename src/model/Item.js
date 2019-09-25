@@ -40,7 +40,7 @@ const Item = {
             try {
                 const [rows] = await connection.query(findQuery);
                 connection.release();
-                if (rows.length) return rows;
+                if (rows.length) return rows[0];
                 return false;
             } catch(err){
                 console.log(`Query Error ~ ${err}`);

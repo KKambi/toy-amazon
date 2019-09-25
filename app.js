@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const favicon = require('serve-favicon')
+const passport = require('passport');
 const session = require('express-session');
 const redis = require('redis');
 require('dotenv').config();
@@ -21,25 +22,6 @@ const uuid = require('./src/utils/uuid_util.js')
 
 //create express-server
 const app = express();
-
-// Session setting
-let RedisStore = require('connect-redis')(session)
-let client = redis.createClient({
-    host: process.env.REDIS_HOST,
-    port: 6379,
-    password: process.env.REDIS_PASSWORD
-})
-app.use(session({
-    name: cookie.SESSION_NAME,
-    genid: function(req){
-        return uuid.createUniqueId();  //uuid 라이브러리릍 통해 세션id 반환
-    },
-    store: new RedisStore({ client }),
-    secret: cookie.SESSION_SECRET,  //hash를 위한 비밀키
-    resave: true,
-    saveUninitialized: true,  //FIXME: passport.js와 관련이슈
-    cookie: cookie.COOKIE_OPTIONS
-}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'src/views'));
@@ -57,6 +39,28 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Session setting
+let RedisStore = require('connect-redis')(session)
+let client = redis.createClient({
+    host: process.env.REDIS_HOST,
+    port: 6379,
+    password: process.env.REDIS_PASSWORD
+})
+app.use(session({
+    name: cookie.SESSION_NAME,
+    genid: function(req){
+        return uuid.createUniqueId();  //uuid 라이브러리릍 통해 세션id 반환
+    },
+    store: new RedisStore({ client }),
+    secret: cookie.SESSION_SECRET,  //hash를 위한 비밀키
+    resave: true,
+    saveUninitialized: false,  //FIXME: passport.js와 관련이슈
+    cookie: cookie.COOKIE_OPTIONS
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+require('./src/javascripts/passport.js').config();
 
 // routing
 app.use('/', indexRouter);

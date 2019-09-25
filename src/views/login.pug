@@ -1,7 +1,7 @@
 doctype html
 head
   link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
-  title todo
+  title= title
   meta(charset='UTF-8')
 #wrapper
   header
@@ -11,7 +11,7 @@ head
     #content
       form#login(action='./create' name='login' autocomplete='off' method='POST')
         .input-group.mb-3
-          input.form-control(type='text' name='id' placeholder='아이디' aria-label='ID' maxlength='20')
+          input.form-control(type='text' name='user_id' placeholder='아이디' aria-label='ID' maxlength='20')
         .input-group.mb-3
           input.form-control(type='password' name='password' placeholder='비밀번호' aria-label='Password' maxlength='16')
         #button-area.input-row
