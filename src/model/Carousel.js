@@ -33,7 +33,7 @@ const Carousel = {
 
     async find(carouselId){
         try {
-            const findQuery = `SELECT * FROM carousel WHERE user='${carouselId}';`
+            const findQuery = `SELECT * FROM carousel WHERE carousel='${carouselId}';`
             const connection = await pool.getConnection(async conn => conn);
             try {
                 const [rows] = await connection.query(findQuery);
@@ -73,7 +73,7 @@ const Carousel = {
 
     async update(carouselId, attribute, value){
         try {
-            const updateQuery = `UPDATE carousel SET ${attribute} = '${value}' WHERE user='${carouselId}'`
+            const updateQuery = `UPDATE carousel SET ${attribute} = '${value}' WHERE carouselId='${carouselId}'`
             const connection = await pool.getConnection(async conn => conn);
             try {
                 await connection.query(updateQuery);

@@ -1,7 +1,7 @@
 const { pool } = require('../javascripts/mysql_pool.js');
 
-const User = {
-    PARAMS_NUMBER: 9,
+const Item = {
+    PARAMS_NUMBER: 3,
 
     async create(params){
         try {
@@ -11,16 +11,10 @@ const User = {
                 console.log(err)
                 return false;
             }
-            const insertQuery = `INSERT INTO user (user, password, name, birth, gender, email, phone, interest, admin) VALUES (
-                '${params.user}',
-                '${params.password}',
+            const insertQuery = `INSERT INTO item (carousel_id, name, url) VALUES (
+                '${params.carousel_id}',
                 '${params.name}',
-                '${params.birth}',
-                '${params.gender}',
-                '${params.email}',
-                '${params.phone}',
-                '${params.interest}',
-                '${params.admin}'
+                '${params.url}'
             );`
             const connection = await pool.getConnection(async conn => conn);
             try {
@@ -39,9 +33,9 @@ const User = {
         }
     },
 
-    async find(userId){
+    async find(itemId){
         try {
-            const findQuery = `SELECT * FROM user WHERE user='${userId}';`
+            const findQuery = `SELECT * FROM item WHERE itemId='${itemId}';`
             const connection = await pool.getConnection(async conn => conn);
             try {
                 const [rows] = await connection.query(findQuery);
@@ -61,7 +55,7 @@ const User = {
 
     async findAll(){
         try {
-            const findAllQuery = `SELECT * FROM user;`
+            const findAllQuery = `SELECT * FROM item;`
             const connection = await pool.getConnection(async conn => conn);
             try {
                 const [rows] = await connection.query(findAllQuery);
@@ -79,9 +73,9 @@ const User = {
         }
     },
 
-    async update(userId, attribute, value){
+    async update(itemId, attribute, value){
         try {
-            const updateQuery = `UPDATE user SET ${attribute} = '${value}' WHERE user='${userId}'`
+            const updateQuery = `UPDATE item SET ${attribute} = '${value}' WHERE itemId='${itemId}'`
             const connection = await pool.getConnection(async conn => conn);
             try {
                 await connection.query(updateQuery);
@@ -98,9 +92,9 @@ const User = {
         } 
     },
 
-    async delete(userId){
+    async delete(itemId){
         try {
-            const deleteQuery = `DELETE user WHERE user='${userId}'`
+            const deleteQuery = `DELETE item WHERE item='${itemId}'`
             const connection = await pool.getConnection(async conn => conn);
             try {
                 await connection.query(deleteQuery);
@@ -119,18 +113,5 @@ const User = {
 };
 
 module.exports = {
-    User
+    Item
 };
-
-// (async() => { console.log(await User.create({
-//     user: "testuser12",
-//     password: "hi",
-//     name: "te",
-//     birth: "94/03/22",
-//     gender: "m",
-//     email: "bok123@mg.com",
-//     phone: "010-2342-2343",
-//     interest: "ewr/werw/qwe",
-//     admin: "1"
-// }))})();
-// (async() => {console.log(await User.findAll())})();
