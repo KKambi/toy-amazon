@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name="viewport" content="width=device-width")
+    meta(name="description" content="Amazon Carousel")
+    meta(name="author" content="KKambi")
+    title= title
+  body
+    div#navbar
+        div.sign-container
+            div.sign-welcome-message
+                if signed
+                    | #{name}(#{user_id}) 님 환영합니다
+                else
+                    | 환영합니다
+            div.sign-buttons
+                if signed
+                    if isAdmin
+                        div.sign-admin-button
+                            a.sign-signin-link(href="./admin")
+                                | 관리
+                    div.sign-logout-button
+                        a.sign-logout-link(onclick="document.querySelector('#logout-form').submit();")
+                            | 로그아웃
+                        form#logout-form(action="/sessions/destroy" method="POST" style="display:none;")
+                else
+                    div.sign-signin-button
+                        a.sign-signin-link(href="./users/new")
+                            | 회원가입
+                    div.sign-login-button
+                        a.sign-login-link(href="./sessions/new")
+                            | 로그인
+
+    script(src="/javascripts/index.bundle.js")

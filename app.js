@@ -15,6 +15,7 @@ require('dotenv').config();
 const indexRouter = require('./routes/index');
 const imagesRouter = require('./routes/images');
 const sessionsRouter = require('./routes/sessions');
+const adminRouter = require('./routes/admin.js')
 
 // import util
 const cookie = require('./src/utils/cookie_util.js')
@@ -66,6 +67,7 @@ require('./src/javascripts/passport.js').config();
 app.use('/', indexRouter);
 app.use('/images', imagesRouter);
 app.use('/sessions', sessionsRouter);
+app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
