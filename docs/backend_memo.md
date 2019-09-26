@@ -1,4 +1,4 @@
-## [Back] Amazon 마스터 클래스
+## [Back] 인증 / 파일업로드 / HTTP API / MySQL
 ### Passport-local 모듈
 1. 사용이 쉽지만, 이해가 어려움
 2. Passport 라이브러리 중, local 로그인을 가능하게 하는 모듈을 사용

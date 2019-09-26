@@ -86,14 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/stylesheets/index.sass":
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/stylesheets/admin.sass":
 /*!*****************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/stylesheets/index.sass ***!
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/stylesheets/admin.sass ***!
   \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".container {\\n  margin: 20px auto 20px auto;\\n  width: 90%;\\n  display: flex; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/stylesheets/index.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"#content-container {\\n  width: 100%;\\n  height: 100%;\\n  display: flex;\\n  justify-content: center;\\n  align-items: center; }\\n\\n.content-wrapper {\\n  width: 120em;\\n  height: 100%;\\n  display: flex;\\n  flex-direction: column; }\\n  .content-wrapper div {\\n    margin-bottom: 2rem; }\\n  .content-wrapper .content-title {\\n    text-align: center;\\n    font-size: 5rem; }\\n  .content-wrapper .content-index {\\n    font-size: 2rem;\\n    display: flex;\\n    justify-content: center; }\\n    .content-wrapper .content-index div {\\n      margin: 0 1rem 0 1rem; }\\n  .content-wrapper .content-body {\\n    height: 100%; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/stylesheets/admin.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -104,7 +104,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"#navbar {\\n  width: 100%;\\n  height: 3rem;\\n  font-size: 1.1rem;\\n  font-weight: 100;\\n  color: #FFFFFF;\\n  background-color: #232F3E;\\n  position: fixed;\\n  top: 0;\\n  z-index: 9999; }\\n  #navbar .nav-container {\\n    height: 100%;\\n    display: flex;\\n    align-items: center; }\\n  #navbar .nav-container div {\\n    margin-right: 1rem; }\\n  #navbar .nav-container div:first-child {\\n    margin-left: 1rem; }\\n  #navbar .nav-container div:last-child {\\n    margin-left: auto; }\\n  #navbar .nav-buttons {\\n    display: flex; }\\n\\na, a:link, a:hover, a:active, a:visited {\\n  color: #FFFFFF; }\\n\\na:hover {\\n  font-weight: bold; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/stylesheets/navbar.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"#navbar {\\n  width: 100%;\\n  height: 5rem;\\n  font-size: 1.8rem;\\n  font-weight: 100;\\n  color: #FFFFFF;\\n  background-color: #232F3E;\\n  position: fixed;\\n  top: 0;\\n  z-index: 9999; }\\n  #navbar .nav-container {\\n    height: 100%;\\n    display: flex;\\n    align-items: center; }\\n  #navbar .nav-container div {\\n    margin-right: 1rem; }\\n  #navbar .nav-container div:first-child {\\n    margin-left: 1rem; }\\n  #navbar .nav-container div:last-child {\\n    margin-left: auto; }\\n  #navbar .nav-buttons {\\n    display: flex; }\\n\\na, a:link, a:hover, a:active, a:visited {\\n  color: #FFFFFF; }\\n\\na:hover {\\n  font-weight: bold; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/stylesheets/navbar.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -115,7 +115,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nexports.push([module.i, \"@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=block);\", \"\"]);\n// Module\nexports.push([module.i, \"html, body, div, span, applet, object, iframe,\\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\\na, abbr, acronym, address, big, cite, code,\\ndel, dfn, em, img, ins, kbd, q, s, samp,\\nsmall, strike, strong, sub, sup, tt, var,\\nb, u, i, center,\\ndl, dt, dd, ol, ul, li,\\nfieldset, form, label, legend,\\ntable, caption, tbody, tfoot, thead, tr, th, td,\\narticle, aside, canvas, details, embed,\\nfigure, figcaption, footer, header, hgroup,\\nmenu, nav, output, ruby, section, summary,\\ntime, mark, audio, video {\\n  margin: 0;\\n  padding: 0;\\n  border: 0;\\n  vertical-align: baseline; }\\n\\nhtml {\\n  width: 100%;\\n  height: 100%; }\\n\\nbody {\\n  width: 100%;\\n  height: 100%;\\n  font-family: \\\"Noto Sans\\\", sans-serif;\\n  font-weight: normal;\\n  font-size: 10px;\\n  line-height: 1;\\n  padding-top: 6em; }\\n\\n/* HTML5 display-role reset for older browsers */\\narticle, aside, details, figcaption, figure,\\nfooter, header, hgroup, menu, nav, section {\\n  display: block; }\\n\\nol, ul {\\n  list-style: none;\\n  font-size: 0; }\\n\\nblockquote, q {\\n  quotes: none; }\\n\\nblockquote:before, blockquote:after,\\nq:before, q:after {\\n  content: '';\\n  content: none; }\\n\\ntable {\\n  border-collapse: collapse;\\n  border-spacing: 0; }\\n\\n/* Header tag default size by KKambi */\\nh1 {\\n  font-size: 4.5em; }\\n\\nh2 {\\n  font-size: 3.5em; }\\n\\nh3 {\\n  font-size: 2.5em; }\\n\\n/* a none tag */\\na, a:link, a:hover, a:active, a:visited {\\n  color: #000000;\\n  cursor: pointer;\\n  text-decoration: none; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/stylesheets/reset.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nexports.push([module.i, \"@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=block);\", \"\"]);\n// Module\nexports.push([module.i, \"html, body, div, span, applet, object, iframe,\\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\\na, abbr, acronym, address, big, cite, code,\\ndel, dfn, em, img, ins, kbd, q, s, samp,\\nsmall, strike, strong, sub, sup, tt, var,\\nb, u, i, center,\\ndl, dt, dd, ol, ul, li,\\nfieldset, form, label, legend,\\ntable, caption, tbody, tfoot, thead, tr, th, td,\\narticle, aside, canvas, details, embed,\\nfigure, figcaption, footer, header, hgroup,\\nmenu, nav, output, ruby, section, summary,\\ntime, mark, audio, video {\\n  margin: 0;\\n  padding: 0;\\n  border: 0;\\n  vertical-align: baseline; }\\n\\nhtml {\\n  font-size: 10px;\\n  width: 100%;\\n  height: 100%; }\\n\\nbody {\\n  width: 100%;\\n  height: 100%;\\n  font-family: \\\"Noto Sans\\\", sans-serif;\\n  font-weight: normal;\\n  line-height: 1;\\n  padding-top: 8em; }\\n\\n/* HTML5 display-role reset for older browsers */\\narticle, aside, details, figcaption, figure,\\nfooter, header, hgroup, menu, nav, section {\\n  display: block; }\\n\\nol, ul {\\n  list-style: none;\\n  font-size: 0; }\\n\\nblockquote, q {\\n  quotes: none; }\\n\\nblockquote:before, blockquote:after,\\nq:before, q:after {\\n  content: '';\\n  content: none; }\\n\\ntable {\\n  border-collapse: collapse;\\n  border-spacing: 0; }\\n\\n/* Header tag default size by KKambi */\\nh1 {\\n  font-size: 4.5em; }\\n\\nh2 {\\n  font-size: 3.5em; }\\n\\nh3 {\\n  font-size: 2.5em; }\\n\\n/* a none tag */\\na, a:link, a:hover, a:active, a:visited {\\n  color: #000000;\\n  cursor: pointer;\\n  text-decoration: none; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/stylesheets/reset.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -143,6 +143,18 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 
 /***/ }),
 
+/***/ "./src/controller/Admin.js":
+/*!*********************************!*\
+  !*** ./src/controller/Admin.js ***!
+  \*********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _stylesheets_admin_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../stylesheets/admin.sass */ \"./src/stylesheets/admin.sass\");\n/* harmony import */ var _stylesheets_admin_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_stylesheets_admin_sass__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _stylesheets_navbar_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stylesheets/navbar.sass */ \"./src/stylesheets/navbar.sass\");\n/* harmony import */ var _stylesheets_navbar_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_stylesheets_navbar_sass__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _javascripts_adminHTML__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../javascripts/adminHTML */ \"./src/javascripts/adminHTML.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n//import stylesheets\n\n //import HTML source\n\n //admin controller class\n\nvar Admin =\n/*#__PURE__*/\nfunction () {\n  function Admin() {\n    _classCallCheck(this, Admin);\n\n    this.content_container = undefined;\n    this.nav_buttons = undefined;\n  }\n\n  _createClass(Admin, [{\n    key: \"init\",\n    value: function init() {\n      //elements\n      this.content_container = document.getElementById(\"content-container\");\n      this.nav_buttons = document.querySelector(\".nav-buttons\"); //nav_buttons에서 link의 click이벤트를 감지\n\n      this.addClickHandler(this.nav_buttons);\n    }\n  }, {\n    key: \"addClickHandler\",\n    value: function addClickHandler(nav_buttons) {\n      var _this = this;\n\n      nav_buttons.addEventListener(\"click\", function (event) {\n        if (_this.isAdminButton(event.target) === false) return;\n\n        _this.changeHTML(_this.content_container);\n      });\n    }\n  }, {\n    key: \"isAdminButton\",\n    value: function isAdminButton(element) {\n      return element.hasAttribute(\"data-type\") === true;\n    }\n  }, {\n    key: \"changeHTML\",\n    value: function changeHTML(content_container, data_type) {\n      content_container.innerHTML(_javascripts_adminHTML__WEBPACK_IMPORTED_MODULE_2__[\"default\"][data_type]);\n    }\n  }]);\n\n  return Admin;\n}();\n\nvar adminController = new Admin();\nadminController.init();\n\n//# sourceURL=webpack:///./src/controller/Admin.js?");
+
+/***/ }),
+
 /***/ "./src/entry/admin.entry.js":
 /*!**********************************!*\
   !*** ./src/entry/admin.entry.js ***!
@@ -151,18 +163,30 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../stylesheets/reset.sass */ \"./src/stylesheets/reset.sass\");\n/* harmony import */ var _stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _stylesheets_index_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stylesheets/index.sass */ \"./src/stylesheets/index.sass\");\n/* harmony import */ var _stylesheets_index_sass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_stylesheets_index_sass__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _stylesheets_navbar_sass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../stylesheets/navbar.sass */ \"./src/stylesheets/navbar.sass\");\n/* harmony import */ var _stylesheets_navbar_sass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_stylesheets_navbar_sass__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n//# sourceURL=webpack:///./src/entry/admin.entry.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../stylesheets/reset.sass */ \"./src/stylesheets/reset.sass\");\n/* harmony import */ var _stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_stylesheets_reset_sass__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _controller_Admin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../controller/Admin */ \"./src/controller/Admin.js\");\n\n\n\n//# sourceURL=webpack:///./src/entry/admin.entry.js?");
 
 /***/ }),
 
-/***/ "./src/stylesheets/index.sass":
+/***/ "./src/javascripts/adminHTML.js":
+/*!**************************************!*\
+  !*** ./src/javascripts/adminHTML.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar adminHTML = {\n  user: \"\",\n  carousel: \"\",\n  item: \"\"\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (adminHTML);\n\n//# sourceURL=webpack:///./src/javascripts/adminHTML.js?");
+
+/***/ }),
+
+/***/ "./src/stylesheets/admin.sass":
 /*!************************************!*\
-  !*** ./src/stylesheets/index.sass ***!
+  !*** ./src/stylesheets/admin.sass ***!
   \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./index.sass */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/stylesheets/index.sass\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/stylesheets/index.sass?");
+eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./admin.sass */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/stylesheets/admin.sass\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/stylesheets/admin.sass?");
 
 /***/ }),
 

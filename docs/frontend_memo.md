@@ -1,4 +1,4 @@
-## [Front] Amazon 마스터 클래스
+## [Front] Carousel을 위한 지식
 1. Event delegation
    - 하위 요소가 변경될 때 유용하다
    - 변경될 때마다 addEventListner를 해줄 수 없기 때문
