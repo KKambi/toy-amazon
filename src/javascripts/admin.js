@@ -56,7 +56,40 @@ class adminView {
     }
 
     changeContent(content_body, res){
-        
+        let rows = ""
+        for (let obj of res){
+            let row = ""
+            for (let key in obj){
+                if (this.isPasswordValue(key) === true){
+                    continue
+                }
+                else if (this.isAdminValue(key) === true){
+                    const value = obj[key] === 1 ? "O":"X"
+                    row += adminHTML.body.row(value)
+                }
+                else if (this.isGenderValue(key) === true){
+                    const value = obj[key] === 'm' ? "남자":"여자"
+                    row += adminHTML.body.row(value)
+                }
+                else{
+                    row += adminHTML.body.row(obj[key])
+                }
+            }
+            rows += `<tr>${row}</tr>`
+        }
+        content_body.innerHTML = adminHTML.body.rows(rows)
+    }
+
+    isPasswordValue(key){
+        return (key === 'password')
+    }
+
+    isAdminValue(key){
+        return (key === 'admin')
+    }
+
+    isGenderValue(key){
+        return (key === 'gender')
     }
 }
 

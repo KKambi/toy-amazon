@@ -4,17 +4,14 @@ const { User } = require('../model/User.js')
 //admin controller class
 class Admin{
     constructor(){
-        this.user = new User()
+        this.User = User
     }    
 
-    getUserList(){
-
+    async getUserList(){
+        return await User.findAll()
     }
 }
 
 module.exports = {
     Admin
 }
-
-// import Admin from '../controller/Admin.js'
-

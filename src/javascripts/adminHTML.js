@@ -44,12 +44,40 @@ const adminHTML = {
             </div>`
     },
     body: {
-        read_user:
-            `test
-            `,
-        create_user:
-            `
-            `,
+        row: (value) => {
+            return `<td>${value}</td>`
+        },
+        rows: (rows) => {
+            return `<table border="1" style="border-collapse: separate; border-spacing: 1rem 1rem;">
+                <th>번호</th>
+                <th>아이디</th>
+                <th>이름</th>
+                <th>생년월일</th>
+                <th>성별</th>
+                <th>이메일</th>
+                <th>휴대전화</th>
+                <th>관심사</th>
+                <th>관리자</th>
+                ${rows}
+            </table>`
+        },
+        create_admin: () => {
+            return 
+                `<form action="/my-handling-form-page" method="post">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" />
+                    </div>
+                    <div>
+                        <label for="mail">E-mail:</label>
+                        <input type="email" id="mail" />
+                    </div>
+                    <div>
+                        <label for="msg">Message:</label>
+                        <textarea id="msg"></textarea>
+                    </div>
+                </form>`
+        },
         read_carousel:
             `
             `,
