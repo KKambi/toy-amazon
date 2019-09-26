@@ -1,20 +1,27 @@
 const adminHTML = {
+    index: () =>        
+        `<div id="content-container">
+            <div class="content-wrapper">
+                <div class="content-title">원하는 작업을 클릭하세요</div>
+            </div>
+        </div>`,
     link: {
-        user: 
+        user: () =>
             `<div id="content-container">
                 <div class="content-wrapper">
                     <div class="content-title">사용자</div>
                     
                     <div class="content-index">
                         <a class="content-index-button" data-body-type="read_user">사용자조회</a>
-                        <a class="content-index-button" data-body-type="update_admin">관리자설정</a>
+                        <a class="content-index-button" data-body-type="create_admin">관리자지정</a>
+                        <a class="content-index-button" data-body-type="destroy_admin">관리자해임</a>
                     </div>
                     
                     <div class="content-body">
                     </div>
                 </div>
             </div>`,
-        carousel: 
+        carousel: () =>
             `<div id="content-container">
                 <div class="content-wrapper">
                     <div class="content-title">카로셀</div>
@@ -28,7 +35,7 @@ const adminHTML = {
                     </div>
                 </div>
             </div>`,
-        item: 
+        item: () =>
             `<div id="content-container">
                 <div class="content-wrapper">
                     <div class="content-title">아이템</div>
@@ -62,21 +69,28 @@ const adminHTML = {
             </table>`
         },
         create_admin: () => {
-            return 
-                `<form action="/my-handling-form-page" method="post">
-                    <div>
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" />
+            return `<div class="body-title">
+                        관리자로 임명하고 싶은 유저아이디를 입력하세요
                     </div>
-                    <div>
-                        <label for="mail">E-mail:</label>
-                        <input type="email" id="mail" />
+                    <form action="/api/users/admin/create" method="post">
+                        <div>
+                            <label for="user_id">아이디:</label>
+                            <input type="text" name="user_id" id="user_id" />
+                        </div>
+                        <button type="submit">임명</button>
+                    </form>`
+        },
+        destroy_admin: () => {
+            return `<div class="body-title">
+                        관리자에서 해임하고 싶은 유저아이디를 입력하세요
                     </div>
-                    <div>
-                        <label for="msg">Message:</label>
-                        <textarea id="msg"></textarea>
-                    </div>
-                </form>`
+                    <form action="/api/users/admin/destroy" method="post">
+                        <div>
+                            <label for="user_id">아이디:</label>
+                            <input type="text" name="user_id" id="user_id" />
+                        </div>
+                        <button type="submit">해임</button>
+                    </form>`
         },
         read_carousel:
             `

@@ -11,6 +11,7 @@ class adminView {
         //elements
         this.content_container = document.getElementById("content-container");
         this.nav_buttons = document.querySelector(".nav-buttons")
+        this.content_container.innerHTML = adminHTML.index()
         
         this.addLinkHandler(this.nav_buttons)
         this.addContentHandler(this.content_container)
@@ -28,7 +29,7 @@ class adminView {
     }
 
     changeMarkup(content_container, link_type){
-        content_container.innerHTML = adminHTML.link[link_type]
+        content_container.innerHTML = adminHTML.link[link_type]()
     }
 
     addContentHandler(content_container){
@@ -36,8 +37,13 @@ class adminView {
             if (this.isIndexButton(event.target) ===  false) return;
             const content_body = content_container.querySelector(".content-body");
             const body_type = event.target.getAttribute("data-body-type");
-            const res = await this.getContent(body_type)
-            this.changeContent(content_body, res)
+            if (body_type === "create_admin" || body_type === "destroy_admin"){
+                content_body.innerHTML = adminHTML.body[body_type]()
+            }
+            else{
+                const res = await this.getContent(body_type)
+                this.changeContent(content_body, res)
+            }
         })
     }
 
@@ -50,7 +56,6 @@ class adminView {
         if (body_type === "read_user"){
             const response = await fetch('/api/users/all')
             const userList = await response.json()
-            console.log(userList)
             return userList
         }
     }
