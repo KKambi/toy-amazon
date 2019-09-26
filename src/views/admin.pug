@@ -13,26 +13,17 @@ html
                 | 관리자 페이지
             div.nav-buttons
                 div.nav-user-button
-                    a.nav-user-link.link(data-type="user")
+                    a.nav-user-link.link(data-link-type="user")
                         | 사용자
                 div.nav-carousel-button
-                    a.nav-carousel-link.link(data-type="carousel")
+                    a.nav-carousel-link.link(data-link-type="carousel")
                         | 카로셀
                 div.nav-item-button
-                    a.nav-item-link.link(data-type="item")
+                    a.nav-item-link.link(data-link-type="item")
                         | 아이템
                 div.nav-index-button
                     a.nav-index-link(href="/")
                         | 돌아가기
     div#content-container
-        div.content-wrapper
-            div.content-title
-                | 사용자
-            div.content-index
-                div.content-index-button
-                    | 사용자조회
-                div.content-index-button
-                    | 관리자설정
-            div.content-body
 
     script(src="/javascripts/admin.bundle.js")
