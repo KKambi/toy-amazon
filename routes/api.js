@@ -25,4 +25,40 @@ router.post('/users/admin/destroy', async function(req, res, next) {
     res.redirect('/admin')
 });
 
+/* GET Carousel list */
+router.get('/carousels/all', async function(req, res, next) {
+    const rows = await AdminController.getCarouselList()
+    res.json(rows);
+});
+
+/* Create carousel */
+router.post('/carousels/create', async function(req, res, next) {
+    const name = req.body.name
+    const params = {
+        name
+    }
+    await AdminController.createCarousel(params)
+    res.redirect('/admin')
+});
+
+/* GET Item list */
+router.get('/items/all', async function(req, res, next) {
+    const rows = await AdminController.getItemList()
+    res.json(rows);
+});
+
+/* Create item */
+router.post('/itmes/create', async function(req, res, next) {
+    const carousel_id = req.body.carousel_id
+    const name = req.body.name
+    const url = req.body.url
+    const params = {
+        carousel_id,
+        name,
+        url
+    }
+    await AdminController.createCarousel(params)
+    res.redirect('/admin')
+});
+
 module.exports = router;

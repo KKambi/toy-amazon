@@ -37,12 +37,15 @@ class adminView {
             if (this.isIndexButton(event.target) ===  false) return;
             const content_body = content_container.querySelector(".content-body");
             const body_type = event.target.getAttribute("data-body-type");
-            if (body_type === "create_admin" || body_type === "destroy_admin"){
+            if (body_type === "create_admin" 
+                || body_type === "destroy_admin"
+                || body_type === "create_carousel"
+                || body_type === 'create_item'){
                 content_body.innerHTML = adminHTML.body[body_type]()
             }
             else{
                 const res = await this.getContent(body_type)
-                this.changeContent(content_body, res)
+                this.changeContent(content_body, res, body_type)
             }
         })
     }
@@ -57,10 +60,20 @@ class adminView {
             const response = await fetch('/api/users/all')
             const userList = await response.json()
             return userList
+        } 
+        else if (body_type === "read_carousel"){
+            const response = await fetch('/api/carousels/all')
+            const userList = await response.json()
+            return userList
+        }
+        else if (body_type === "read_item"){
+            const response = await fetch('/api/items/all')
+            const userList = await response.json()
+            return userList
         }
     }
 
-    changeContent(content_body, res){
+    changeContent(content_body, res, body_type){
         let rows = ""
         for (let obj of res){
             let row = ""
@@ -82,7 +95,7 @@ class adminView {
             }
             rows += `<tr>${row}</tr>`
         }
-        content_body.innerHTML = adminHTML.body.rows(rows)
+        content_body.innerHTML = adminHTML.body[body_type](rows)
     }
 
     isPasswordValue(key){

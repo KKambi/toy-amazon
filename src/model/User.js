@@ -82,7 +82,6 @@ const User = {
     async update(userId, attribute, value){
         try {
             const updateQuery = `UPDATE user SET ${attribute} = '${value}' WHERE user_id='${userId}'`
-            console.log(updateQuery)
             const connection = await pool.getConnection(async conn => conn);
             try {
                 await connection.query(updateQuery);

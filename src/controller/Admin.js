@@ -1,5 +1,7 @@
 //import Model
 const { User } = require('../model/User.js')
+const { Carousel } = require('../model/Carousel.js')
+const { Item } = require('../model/Item.js')
 
 //admin controller class
 class Admin{
@@ -17,6 +19,22 @@ class Admin{
 
     async dismissAdmin(user_id){
         await User.update(user_id, "admin", 0)
+    }
+
+    async getCarouselList(){
+        return await Carousel.findAll()
+    }
+
+    async createCarousel(name){
+        await Carousel.create(name)
+    }
+
+    async getItemList(){
+        return await Item.findAll()
+    }
+
+    async createItem(params){
+        await Item.create(params)
     }
 }
 

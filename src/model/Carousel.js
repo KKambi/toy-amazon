@@ -12,7 +12,7 @@ const Carousel = {
                 return false;
             }
             const insertQuery = `INSERT INTO carousel (name) VALUES (
-                '${params.name}',
+                '${params.name}'
             );`
             const connection = await pool.getConnection(async conn => conn);
             try {

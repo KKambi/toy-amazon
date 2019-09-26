@@ -28,7 +28,7 @@ const adminHTML = {
                     
                     <div class="content-index">
                         <a class="content-index-button" data-body-type="read_carousel">카로셀조회</a>
-                        <a class="content-index-button" data-body-type="create-carousel">카로셀생성</a>
+                        <a class="content-index-button" data-body-type="create_carousel">카로셀생성</a>
                     </div>
                     
                     <div class="content-body">
@@ -41,8 +41,8 @@ const adminHTML = {
                     <div class="content-title">아이템</div>
                     
                     <div class="content-index">
-                        <a class="content-index-button" data-body-type="read-item">아이템조회</a>
-                        <a class="content-index-button" data-body-type="create-user">아이템생성</a>
+                        <a class="content-index-button" data-body-type="read_item">아이템조회</a>
+                        <a class="content-index-button" data-body-type="create_item">아이템생성</a>
                     </div>
                     
                     <div class="content-body">
@@ -54,7 +54,7 @@ const adminHTML = {
         row: (value) => {
             return `<td>${value}</td>`
         },
-        rows: (rows) => {
+        read_user: (rows) => {
             return `<table border="1" style="border-collapse: separate; border-spacing: 1rem 1rem;">
                 <th>번호</th>
                 <th>아이디</th>
@@ -67,6 +67,22 @@ const adminHTML = {
                 <th>관리자</th>
                 ${rows}
             </table>`
+        },
+        read_carousel: (rows) => {
+            return `<table border="1" style="border-collapse: separate; border-spacing: 1rem 1rem;">
+                        <th>번호</th>
+                        <th>이름</th>
+                        ${rows}
+                    </table>`
+        },
+        read_item: (rows) => {
+            return `<table border="1" style="border-collapse: separate; border-spacing: 1rem 1rem;">
+                        <th>번호</th>
+                        <th>카로셀번호</th>
+                        <th>이름</th>
+                        <th>url</th>
+                        ${rows}
+                    </table>`
         },
         create_admin: () => {
             return `<div class="body-title">
@@ -92,18 +108,37 @@ const adminHTML = {
                         <button type="submit">해임</button>
                     </form>`
         },
-        read_carousel:
-            `
-            `,
-        create_carousel:
-            `
-            `,
-        read_item:
-            `
-            `,
-        create_item:
-            `
-            `,
+        create_carousel: () => {
+            return `<div class="body-title">
+                        생성할 카로셀 정보를 입력하세요
+                    </div>
+                    <form action="/api/carousels/create" method="post">
+                        <div>
+                            <label for="name">이름:</label>
+                            <input type="text" name="name" id="name" />
+                        </div>
+                        <button type="submit">생성</button>
+                    </form>`
+        },
+        create_item: () => {
+            return `<div class="body-title">
+                        생성할 아이템 정보를 입력하세요
+                    </div>
+                    <form action="/api/carousels/create" method="post">
+                        <div>
+                            <label for="carousel_id">카로셀번호:</label>
+                            <input type="text" name="carousel_id" id="carousel_id" />
+                        </div>
+                        <div>
+                            <label for="name">이름:</label>
+                            <input type="text" name="name" id="name" />
+                        </div>
+                        <div>
+                            업로드
+                        </div>
+                        <button type="submit">생성</button>
+                    </form>`
+        }
     }
 }
 
