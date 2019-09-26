@@ -16,6 +16,7 @@ const indexRouter = require('./routes/index');
 const imagesRouter = require('./routes/images');
 const sessionsRouter = require('./routes/sessions');
 const adminRouter = require('./routes/admin.js')
+const apiRouter = require('./routes/api.js')
 
 // import util
 const cookie = require('./src/utils/cookie_util.js')
@@ -68,6 +69,7 @@ app.use('/', indexRouter);
 app.use('/images', imagesRouter);
 app.use('/sessions', sessionsRouter);
 app.use('/admin', adminRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

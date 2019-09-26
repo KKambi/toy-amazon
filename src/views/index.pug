@@ -18,21 +18,22 @@ html
                 if signed
                     if isAdmin
                         div.nav-admin-button
-                            a.nav-signin-link(href="./admin")
+                            a.nav-signin-link.link(href="./admin")
                                 | 관리
                     div.nav-logout-button
-                        a.nav-logout-link(onclick="document.querySelector('#logout-form').submit();")
+                        a.nav-logout-link.link(onclick="document.querySelector('#logout-form').submit();")
                             | 로그아웃
                         form#logout-form(action="/sessions/destroy" method="POST" style="display:none;")
                 else
                     div.nav-signin-button
-                        a.nav-signin-link(href="./users/new")
+                        a.nav-signin-link.link(href="./users/new")
                             | 회원가입
                     div.nav-login-button
-                        a.nav-login-link(href="./sessions/new")
+                        a.nav-login-link.link(href="./sessions/new")
                             | 로그인
     div#main-card-continaer.container
     div#main-beneift-container.container
     div#video-benefit-container.container
     div#music-benefit-container.container
     script(src="/javascripts/index.bundle.js")
+    script(type="module" src="/javascripts/admin.js")
