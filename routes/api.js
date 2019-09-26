@@ -1,6 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
+//import library
+const multer = require('multer')
+const upload = multer({
+    storage: multer.memoryStorage()
+})
+
 //import Model
 const { Admin } = require('../src/controller/Admin.js')
 const AdminController = new Admin();
@@ -48,7 +54,10 @@ router.get('/items/all', async function(req, res, next) {
 });
 
 /* Create item */
-router.post('/itmes/create', async function(req, res, next) {
+router.post('/items/create', upload.single('image'), async function(req, res, next) {
+    console.log(req.file)
+    console.log(req.files)
+
     const carousel_id = req.body.carousel_id
     const name = req.body.name
     const url = req.body.url

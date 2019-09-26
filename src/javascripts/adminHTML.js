@@ -124,7 +124,7 @@ const adminHTML = {
             return `<div class="body-title">
                         생성할 아이템 정보를 입력하세요
                     </div>
-                    <form action="/api/carousels/create" method="post">
+                    <form action="/api/items/create" method="post" enctype=multipart/form-data>
                         <div>
                             <label for="carousel_id">카로셀번호:</label>
                             <input type="text" name="carousel_id" id="carousel_id" />
@@ -134,7 +134,8 @@ const adminHTML = {
                             <input type="text" name="name" id="name" />
                         </div>
                         <div>
-                            업로드
+                            <label for="image">이미지</label>
+                            <input type="file" name="image" id="image">
                         </div>
                         <button type="submit">생성</button>
                     </form>`
