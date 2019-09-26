@@ -1,2 +1,5 @@
 import '../stylesheets/reset.sass'
-import '../controller/Admin'
+import '../stylesheets/navbar.sass'
+import '../stylesheets/admin.sass'
+
+import '../javascripts/admin.js'

@@ -1,13 +1,13 @@
-//import stylesheets
-import '../stylesheets/admin.sass'
-import '../stylesheets/navbar.sass'
+//import Model
+import User from '../model/User'
 
 //import HTML source
-import adminHTML from '../javascripts/adminHTML'
+import adminHTML from '../javascripts/adminHTML.js'
 
 //admin controller class
 class Admin{
     constructor(){
+        this.User = new User()
         this.content_container = undefined
         this.nav_buttons = undefined
     }
@@ -51,6 +51,10 @@ class Admin{
 
     changeContent(content_body, body_type){
         content_body.innerHTML = adminHTML.body[body_type]
+    }
+
+    getUserList(){
+
     }
 }
 

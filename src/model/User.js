@@ -1,7 +1,11 @@
-const { pool } = require('../javascripts/mysql_pool.js');
+// const { this.pool } = require('../javascripts/mysql_pool.js');
+import Pool from '../javascripts/mysql_pool'
 
-const User = {
-    PARAMS_NUMBER: 9,
+class User{
+    constructor(){
+        this.pool = new Pool().createPool()
+        this.PARAMS_NUMBER = 9
+    }
 
     async create(params){
         try {
@@ -22,7 +26,7 @@ const User = {
                 '${params.interest}',
                 '${params.admin}'
             );`
-            const connection = await pool.getConnection(async conn => conn);
+            const connection = await this.pool.getConnection(async conn => conn);
             try {
                 await connection.query(insertQuery);
                 connection.release();
@@ -37,12 +41,12 @@ const User = {
             connection.release();
             return false;
         }
-    },
+    }
 
     async find(userId){
         try {
             const findQuery = `SELECT * FROM user WHERE user_id='${userId}';`
-            const connection = await pool.getConnection(async conn => conn);
+            const connection = await this.pool.getConnection(async conn => conn);
             try {
                 const [rows] = await connection.query(findQuery);
                 connection.release();
@@ -57,12 +61,12 @@ const User = {
             console.log(`DB Connection Error ~ ${err}`);
             return false;
         }
-    },
+    }
 
     async findAll(){
         try {
             const findAllQuery = `SELECT * FROM user;`
-            const connection = await pool.getConnection(async conn => conn);
+            const connection = await this.pool.getConnection(async conn => conn);
             try {
                 const [rows] = await connection.query(findAllQuery);
                 connection.release();
@@ -76,12 +80,12 @@ const User = {
             console.log(`DB Connection Error ~ ${err}`);
             return false;
         }
-    },
+    }
 
     async update(userId, attribute, value){
         try {
             const updateQuery = `UPDATE user SET ${attribute} = '${value}' WHERE user_id='${userId}'`
-            const connection = await pool.getConnection(async conn => conn);
+            const connection = await this.pool.getConnection(async conn => conn);
             try {
                 await connection.query(updateQuery);
                 connection.release();
@@ -95,12 +99,12 @@ const User = {
             console.log(`DB Connection Error ~ ${err}`);
             return false;
         } 
-    },
+    }
 
     async delete(userId){
         try {
             const deleteQuery = `DELETE user WHERE user_id='${userId}'`
-            const connection = await pool.getConnection(async conn => conn);
+            const connection = await this.pool.getConnection(async conn => conn);
             try {
                 await connection.query(deleteQuery);
                 connection.release();
@@ -117,9 +121,12 @@ const User = {
     }
 };
 
-module.exports = {
-    User
-};
+export default User;
+
+// module.exports = {
+//     User
+// };
+
 
 // (async() => { console.log(await User.create({
 //     user: "testuser12",

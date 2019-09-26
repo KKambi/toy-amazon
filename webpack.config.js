@@ -3,6 +3,8 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+var webpack = require('webpack');
+var dotenv = require('dotenv').config({path: __dirname + './.env'});
 
 module.exports = {
   entry: {
@@ -44,6 +46,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+        "process.env": JSON.stringify(dotenv.parsed)
+    }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
