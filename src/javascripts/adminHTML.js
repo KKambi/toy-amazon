@@ -78,8 +78,8 @@ const adminHTML = {
         read_item: (rows) => {
             return `<table border="1" style="border-collapse: separate; border-spacing: 1rem 1rem;">
                         <th>번호</th>
-                        <th>카로셀번호</th>
                         <th>이름</th>
+                        <th>카로셀번호</th>
                         <th>url</th>
                         ${rows}
                     </table>`
@@ -128,10 +128,6 @@ const adminHTML = {
                         <div>
                             <label for="carousel_id">카로셀번호:</label>
                             <input type="text" name="carousel_id" id="carousel_id" />
-                        </div>
-                        <div>
-                            <label for="name">이름:</label>
-                            <input type="text" name="name" id="name" />
                         </div>
                         <div>
                             <label for="image">이미지</label>

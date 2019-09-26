@@ -7,9 +7,12 @@ const upload = multer({
     storage: multer.memoryStorage()
 })
 
-//import Model
+//import Controller
 const { Admin } = require('../src/controller/Admin.js')
 const AdminController = new Admin();
+
+//import Mdel
+const { ObjectStorage } = require('../src/model/ObjectStorage.js')
 
 /* GET User list */
 router.get('/users/all', async function(req, res, next) {
@@ -55,18 +58,24 @@ router.get('/items/all', async function(req, res, next) {
 
 /* Create item */
 router.post('/items/create', upload.single('image'), async function(req, res, next) {
-    console.log(req.file)
-    console.log(req.files)
+    //Buffer to stream
+    const name = req.file.originalname
+    const imageBuffer = req.file.buffer
 
+    //Upload to S3
+    await ObjectStorage.uploadObject(name, imageBuffer)
+
+    //Get URL
+    const url = await ObjectStorage.getObjectUrl(name)
+
+    //Insert item in MySQL
     const carousel_id = req.body.carousel_id
-    const name = req.body.name
-    const url = req.body.url
     const params = {
         carousel_id,
         name,
         url
     }
-    await AdminController.createCarousel(params)
+    await AdminController.createItem(params)
     res.redirect('/admin')
 });
 

@@ -34,7 +34,7 @@ class adminView {
 
     addContentHandler(content_container){
         content_container.addEventListener("click", async (event) => {
-            if (this.isIndexButton(event.target) ===  false) return;
+            if (this.isIndexButton(event.target) === false) return;
             const content_body = content_container.querySelector(".content-body");
             const body_type = event.target.getAttribute("data-body-type");
             if (body_type === "create_admin" 

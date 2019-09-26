@@ -1,7 +1,6 @@
 //import library
 const AWS = require('aws-sdk')
 const fs = require('fs')
-const path = require('path')
 require('dotenv').config();
 
 //AWS S3 setting
@@ -20,7 +19,7 @@ const S3 = new AWS.S3({
 });
 
 //S3 Controller
-const StorageController = {
+const ObjectStorage = {
     async createBucket(){
         await S3.createBucket({
             Bucket: bucket_name,
@@ -39,27 +38,24 @@ const StorageController = {
         }).promise();
     },
 
-    async uploadObject(object_name, local_file_path){
+    async uploadObject(object_name, imageStream){
         await S3.putObject({
             Bucket: bucket_name,
             Key: object_name,
             ACL: 'public-read',
-            Body: fs.createReadStream(local_file_path)  //스트림 형식으로 업로드할 파일을 전송
+            Body: imageStream  //스트림 형식으로 업로드할 파일을 전송
         }, (err) => {
             if (err) console.log(err, err.stack); 
         });
     },
 
-    async getObject(object_name){
+    async getObjectUrl(object_name){
         // Get url of file
         let url = undefined;
-        await S3.getSignedUrl('getObject', {
+        url = await S3.getSignedUrl('getObject', {
             Bucket: bucket_name,
             Key: object_name
-        }, (err, data) => {
-            if (err) console.log(err, err.stack); 
-            else     url = data;
-        });
+        })
         return url;
     },
 
@@ -86,8 +82,8 @@ const StorageController = {
 }
 
 module.exports = {
-    StorageController
-}
+    ObjectStorage
+};
 
 // // File Upload Example
 // const local_file_path = path.resolve(__dirname, "../../public/images/Main_Card/Main_Card_A01.jpg")
@@ -99,4 +95,8 @@ module.exports = {
 // // File Retrieve Example
 // (async() => {
 //     console.log(await StorageController.getObject(local_file_name))
+// })();
+
+// (async() => {
+//     console.log(await ObjectStorage.getObjectUrl("test.jpg"))
 // })();
