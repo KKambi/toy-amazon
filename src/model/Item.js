@@ -35,7 +35,7 @@ const Item = {
 
     async find(itemId){
         try {
-            const findQuery = `SELECT * FROM item WHERE itemId='${itemId}';`
+            const findQuery = `SELECT * FROM item WHERE id='${itemId}';`
             const connection = await pool.getConnection(async conn => conn);
             try {
                 const [rows] = await connection.query(findQuery);

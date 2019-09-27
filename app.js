@@ -47,7 +47,7 @@ let RedisStore = require('connect-redis')(session)
 let client = redis.createClient({
     host: process.env.REDIS_HOST,
     port: 6379,
-    password: process.env.REDIS_PASSWORD
+    // password: process.env.REDIS_PASSWORD
 })
 app.use(session({
     name: cookie.SESSION_NAME,
@@ -57,7 +57,7 @@ app.use(session({
     store: new RedisStore({ client }),
     secret: cookie.SESSION_SECRET,  //hash를 위한 비밀키
     resave: false,
-    saveUninitialized: false,  //FIXME: passport.js와 관련이슈
+    saveUninitialized: true,  //FIXME: passport.js와 관련이슈
     cookie: cookie.COOKIE_OPTIONS
 }))
 app.use(passport.initialize());

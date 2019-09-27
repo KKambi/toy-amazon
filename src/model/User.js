@@ -34,7 +34,7 @@ const User = {
                 return false;
             }
         } catch(err){
-            console.log(`DB Connection Error ~ ${err}`);
+            console.log(`DB Connection Error ~ ${err.stack}`);
             connection.release();
             return false;
         }

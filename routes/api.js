@@ -56,6 +56,12 @@ router.get('/items/all', async function(req, res, next) {
     res.json(rows);
 });
 
+/* GET Item */
+router.get('/items/:id', async function(req, res, next){
+    const row = await AdminController.getItem(req.params.id)
+    res.json(row);
+})
+
 /* Create item */
 router.post('/items/create', upload.single('image'), async function(req, res, next) {
     //Buffer to stream

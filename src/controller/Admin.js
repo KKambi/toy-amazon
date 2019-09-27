@@ -29,6 +29,10 @@ class Admin{
         await Carousel.create(name)
     }
 
+    async getItem(item_id){
+        return await Item.find(item_id)
+    }
+
     async getItemList(){
         return await Item.findAll()
     }
